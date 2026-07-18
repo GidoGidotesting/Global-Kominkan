@@ -1,266 +1,46 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Global Kominkan | グローバル公民館</title>
-<meta name="description" content="日本の公民館モデルをエジプトに。学び、つどい、つなぐ社会教育の実践拠点、グローバル公民館の公式サイトです。">
-<link rel="icon" href="images/favicon.png">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
-
-:root{
-  --sand: #F3E9D2;
-  --sand-deep: #E9DBB8;
-  --paper: #FBF6EA;
-  --ink: #1B2A4A;
-  --ink-soft: #33456B;
-  --teal: #2C6E6E;
-  --teal-deep: #1E4F4F;
-  --gold: #D9A441;
-  --gold-deep: #B9832E;
-  --red: #B4432D;
-  --char: #2B2420;
-  --max: 1120px;
-}
-
-*{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{
-  margin:0;
-  background:
-    repeating-linear-gradient(180deg, rgba(27,42,74,0.028) 0px, rgba(27,42,74,0.028) 1px, transparent 1px, transparent 34px),
-    var(--sand);
-  color:var(--char);
-  font-family:"Noto Sans JP", sans-serif;
-  font-weight:400;
-  line-height:1.85;
-  -webkit-font-smoothing:antialiased;
-}
-
-h1,h2,h3,h4{ font-family:"Shippori Mincho", serif; color:var(--ink); margin:0 0 .5em; letter-spacing:.02em; }
-a{ color:var(--teal-deep); text-decoration:none; }
-a:hover{ color:var(--gold-deep); }
-img{ max-width:100%; display:block; }
-
-.eyebrow{
-  font-family:"Zen Kaku Gothic New", sans-serif; font-size:.72rem; letter-spacing:.32em;
-  text-transform:uppercase; color:var(--gold-deep); font-weight:700; margin-bottom:.9em;
-  display:inline-flex; align-items:center; gap:.6em;
-}
-.eyebrow::before{ content:""; width:22px; height:1px; background:var(--gold-deep); display:inline-block; }
-
-.wrap{ max-width:var(--max); margin:0 auto; padding:0 28px; }
-
-/* ---------- Header / nav ---------- */
-.site-header{ position:sticky; top:0; z-index:50; background:rgba(243,233,210,.94); backdrop-filter:blur(6px); border-bottom:1px solid rgba(27,42,74,.14); }
-.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; height:82px; }
-.brand{ display:flex; align-items:center; gap:13px; font-family:"Shippori Mincho", serif; font-weight:700; font-size:1.18rem; color:var(--ink); }
-.brand img.logo-mark{ width:52px; height:52px; flex:none; border-radius:10px; object-fit:cover; border:1px solid rgba(27,42,74,.15); background:#fff; }
-.brand small{ display:block; font-family:"Zen Kaku Gothic New",sans-serif; font-weight:500; font-size:.66rem; letter-spacing:.14em; color:var(--ink-soft); }
-nav.main-nav ul{ list-style:none; display:flex; gap:1.8rem; margin:0; padding:0; font-family:"Zen Kaku Gothic New", sans-serif; font-size:.86rem; }
-nav.main-nav a{ color:var(--ink); position:relative; padding:.3em 0; }
-nav.main-nav a::after{ content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--gold-deep); transition:width .25s ease; }
-nav.main-nav a:hover::after{ width:100%; }
-.nav-toggle{ display:none; }
-
-@media (max-width: 900px){
-  nav.main-nav ul{
-    position:fixed; inset:82px 0 auto 0; flex-direction:column; gap:0;
-    background:var(--paper); padding:8px 28px 20px; transform:translateY(-8px);
-    opacity:0; pointer-events:none; transition:all .25s ease; border-bottom:1px solid rgba(27,42,74,.12);
-    max-height:80vh; overflow:auto;
-  }
-  nav.main-nav ul.open{ opacity:1; pointer-events:auto; transform:translateY(0); }
-  nav.main-nav li{ border-top:1px solid rgba(27,42,74,.08); }
-  nav.main-nav a{ display:block; padding:.9em 0; }
-  .nav-toggle{ display:flex; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px; }
-  .nav-toggle span{ width:22px; height:2px; background:var(--ink); display:block; }
-}
-
-/* ---------- Hero ---------- */
-.hero{
-  position:relative; padding:96px 0 80px; overflow:hidden;
-  background:
-    radial-gradient(circle at 84% 14%, rgba(217,164,65,.35), transparent 45%),
-    radial-gradient(circle at 6% 92%, rgba(44,110,110,.25), transparent 42%),
-    var(--sand);
-}
-.hero-grid{ position:relative; display:grid; grid-template-columns: 1.15fr .85fr; gap:48px; align-items:center; }
-.hero h1{ font-size:clamp(2.1rem, 4.2vw, 3.3rem); line-height:1.4; margin-bottom:.6em; }
-.hero h1 .accent{ color:var(--teal-deep); }
-.hero p.lead{ font-size:1.03rem; color:var(--ink-soft); max-width:46ch; margin-bottom:1.8em; }
-.btn-row{ display:flex; gap:14px; flex-wrap:wrap; }
-.btn{
-  display:inline-flex; align-items:center; gap:.5em; padding:.9em 1.6em; border-radius:2px;
-  font-family:"Zen Kaku Gothic New", sans-serif; font-size:.88rem; font-weight:700; letter-spacing:.05em;
-  border:1px solid transparent; cursor:pointer;
-}
-.btn-primary{ background:var(--ink); color:var(--sand); }
-.btn-primary:hover{ background:var(--teal-deep); color:#fff; }
-.btn-outline{ border-color:var(--ink); color:var(--ink); }
-.btn-outline:hover{ border-color:var(--gold-deep); color:var(--gold-deep); }
-
-.hero-photo{ position:relative; max-width:400px; margin:0 auto; }
-.hero-photo img{ width:100%; height:300px; object-fit:cover; border:1px solid rgba(27,42,74,.18); box-shadow:0 30px 60px -25px rgba(27,42,74,.35); }
-.hero-photo .cap{
-  position:absolute; left:16px; bottom:-16px; background:var(--ink); color:var(--sand);
-  font-family:"Zen Kaku Gothic New",sans-serif; font-size:.7rem; letter-spacing:.06em;
-  padding:8px 14px; max-width:80%;
-}
-.hero-logo-top{ display:flex; justify-content:center; padding-top:6px; margin-bottom:8px; }
-.hero-logo-top img{ width:230px; height:230px; object-fit:contain; }
-
-/* ---------- section shell ---------- */
-section{ padding:88px 0; }
-section.alt{ background:var(--paper); }
-.section-head{ max-width:660px; margin-bottom:52px; }
-.section-head h2{ font-size:clamp(1.6rem,3vw,2.2rem); }
-.section-head p{ color:var(--ink-soft); font-size:1rem; }
-
-.chapter-badge{
-  display:inline-flex; align-items:center; gap:.6em; border:1px solid var(--ink); border-radius:999px;
-  padding:.3em .9em .3em .5em; font-family:"Zen Kaku Gothic New",sans-serif; font-size:.72rem; font-weight:700;
-  color:var(--ink); margin-bottom:.9em; background:var(--paper);
-}
-.chapter-badge .dot{ width:20px; height:20px; border-radius:50%; background:var(--teal-deep); color:#fff; display:flex; align-items:center; justify-content:center; font-size:.68rem; font-family:"Shippori Mincho",serif; }
-
-/* ---------- Mission grid ---------- */
-.mission-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:rgba(27,42,74,.12); border:1px solid rgba(27,42,74,.12); }
-.mission-card{ background:var(--sand); padding:32px 20px; display:flex; flex-direction:column; gap:.7em; }
-.mission-card .kanji{ font-family:"Shippori Mincho", serif; font-size:2rem; color:var(--teal-deep); }
-.mission-card h3{ font-size:.98rem; margin:0; }
-.mission-card p{ font-size:.85rem; color:var(--ink-soft); margin:0; }
-@media (max-width:900px){ .mission-grid{ grid-template-columns:repeat(2,1fr);} }
-@media (max-width:540px){ .mission-grid{ grid-template-columns:1fr;} }
-
-/* ---------- Feature grid (toha lead features) ---------- */
-.toha-lead{ max-width:72ch; color:var(--ink-soft); font-size:1rem; margin-bottom:2.2em; }
-.toha-lead strong{ color:var(--ink); }
-.feature-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(27,42,74,.12); border:1px solid rgba(27,42,74,.12); margin-bottom:1.6em; }
-.feature-card{ background:var(--paper); padding:28px 22px; display:flex; flex-direction:column; gap:.6em; }
-.feature-card h4{ font-family:"Shippori Mincho",serif; font-size:1rem; color:var(--ink); margin:0; }
-.feature-card p{ font-size:.85rem; color:var(--ink-soft); margin:0; }
-@media (max-width:900px){ .feature-grid{ grid-template-columns:repeat(2,1fr);} }
-@media (max-width:540px){ .feature-grid{ grid-template-columns:1fr;} }
-.toha-more{ display:inline-block; margin-bottom:2.6em; font-family:"Zen Kaku Gothic New",sans-serif; font-size:.84rem; font-weight:700; }
-.sub-head{ margin:0 0 1.4em; font-size:1.2rem; }
-
-/* ---------- Timeline ---------- */
-.timeline{ position:relative; padding-left:28px; border-left:1px solid rgba(27,42,74,.2); }
-.t-item{ position:relative; padding-bottom:42px; }
-.t-item:last-child{ padding-bottom:0; }
-.t-item::before{ content:""; position:absolute; left:-33px; top:4px; width:10px; height:10px; border-radius:50%; background:var(--gold-deep); border:2px solid var(--sand); }
-.t-year{ font-family:"Zen Kaku Gothic New",sans-serif; font-size:.76rem; letter-spacing:.12em; color:var(--teal-deep); font-weight:700; }
-.t-item h3{ margin:.25em 0 .35em; font-size:1.16rem; }
-.t-item p{ color:var(--ink-soft); margin:0; max-width:62ch; }
-
-/* ---------- Lesson cards (report highlights) ---------- */
-.report-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
-@media (max-width:920px){ .report-grid{ grid-template-columns:repeat(2,1fr);} }
-@media (max-width:600px){ .report-grid{ grid-template-columns:1fr;} }
-.card{ background:var(--paper); border:1px solid rgba(27,42,74,.14); overflow:hidden; display:flex; flex-direction:column; transition:transform .2s ease, box-shadow .2s ease; }
-.card:hover{ transform:translateY(-4px); box-shadow:0 24px 40px -28px rgba(27,42,74,.4); }
-.card .card-photo{ width:100%; height:150px; object-fit:cover; }
-.card .card-body{ padding:22px 22px 26px; display:flex; flex-direction:column; gap:.8em; flex:1; }
-.card .num{ font-family:"Shippori Mincho",serif; font-size:.82rem; color:var(--gold-deep); }
-.card h3{ font-size:1.05rem; margin:0; }
-.card p{ font-size:.87rem; color:var(--ink-soft); margin:0; flex:1; }
-.card .meta{ font-family:"Zen Kaku Gothic New",sans-serif; font-size:.7rem; color:var(--ink-soft); opacity:.75; }
-
-/* ---------- Full syllabus list (blog) ---------- */
-.blog-list{ display:flex; flex-direction:column; }
-.blog-row{ display:grid; grid-template-columns:150px 1fr; gap:26px; padding:32px 0; border-bottom:1px solid rgba(27,42,74,.14); align-items:start; }
-.blog-row .thumb{ position:relative; }
-.blog-row .thumb img{ width:150px; height:112px; object-fit:cover; border:1px solid rgba(27,42,74,.16); display:block; }
-.blog-row .thumb.badge img{ object-fit:contain; background:#fff; padding:14px; }
-.blog-row .thumb .num{
-  position:absolute; bottom:-10px; left:-8px; background:var(--ink); color:var(--sand);
-  font-family:"Shippori Mincho",serif; font-size:.82rem; padding:2px 10px; line-height:1.6;
-}
-.blog-row h3{ font-size:1.18rem; margin-bottom:.3em; }
-.blog-row .tag{ display:inline-block; margin-bottom:.6em; font-family:"Zen Kaku Gothic New",sans-serif; font-size:.68rem; letter-spacing:.1em; color:var(--teal-deep); text-transform:uppercase; }
-.blog-row p{ color:var(--ink-soft); max-width:70ch; margin:0; }
-.blog-row .meta{ font-size:.76rem; color:var(--ink-soft); opacity:.7; margin-top:.6em; }
-.blog-row details{ margin-top:.9em; }
-.blog-row details summary{
-  cursor:pointer; font-family:"Zen Kaku Gothic New",sans-serif; font-size:.78rem; font-weight:700;
-  color:var(--teal-deep); list-style:none; display:inline-flex; align-items:center; gap:.4em;
-}
-.blog-row details summary::-webkit-details-marker{ display:none; }
-.blog-row details summary::before{ content:"▼ 続きを読む"; }
-.blog-row details[open] summary::before{ content:"▲ 閉じる"; }
-.blog-row .full-text{
-  margin-top:1em; padding-top:1em; border-top:1px dashed rgba(27,42,74,.2); max-width:70ch;
-}
-.blog-row .full-text p{ font-size:.9rem; color:var(--char); line-height:1.9; margin:0 0 1.1em; }
-.blog-row .full-text p:last-child{ margin-bottom:0; }
-@media (max-width:640px){ .blog-row{ grid-template-columns:1fr; } .blog-row .thumb img{ width:120px; } }
-
-/* ---------- Egyptian Kominkan (Taa Kominkan) section ---------- */
-.taa-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
-@media (max-width:860px){ .taa-grid{ grid-template-columns:1fr; } }
-.taa-photos{ display:grid; grid-template-columns:1.2fr .8fr; gap:14px; }
-.taa-photos img{ width:100%; height:100%; object-fit:cover; border:1px solid rgba(27,42,74,.16); }
-.taa-photos .tall{ grid-row:span 2; height:100%; min-height:280px; }
-.taa-photos .short{ height:133px; }
-.taa-text h2{ margin-bottom:.3em; }
-.taa-text .jp-alt{ display:block; font-family:"Zen Kaku Gothic New",sans-serif; font-size:.85rem; color:var(--ink-soft); margin-bottom:1.2em; }
-.taa-note{
-  margin-top:1.4em; font-size:.82rem; color:var(--ink-soft); background:var(--sand-deep);
-  border-left:3px solid var(--gold-deep); padding:.8em 1em;
-}
-
-/* ---------- Partners ---------- */
-.partner-list{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(27,42,74,.15); border:1px solid rgba(27,42,74,.15); }
-.partner-list div{ background:var(--sand); padding:28px 16px; text-align:center; font-family:"Zen Kaku Gothic New",sans-serif; font-size:.84rem; color:var(--ink); display:flex; align-items:center; justify-content:center; min-height:92px; }
-@media (max-width:760px){ .partner-list{ grid-template-columns:repeat(2,1fr);} }
-
-/* ---------- Support box ---------- */
-.support-box{ background:var(--paper); border:1px solid rgba(27,42,74,.15); padding:44px; display:flex; flex-direction:column; gap:20px; align-items:flex-start; }
-.support-box p{ color:var(--ink-soft); margin:0; max-width:60ch; }
-
-/* ---------- Participant voices ---------- */
-.voice-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-@media (max-width:920px){ .voice-grid{ grid-template-columns:repeat(2,1fr);} }
-@media (max-width:600px){ .voice-grid{ grid-template-columns:1fr;} }
-.voice-card{ background:var(--sand); border:1px solid rgba(27,42,74,.14); padding:26px 24px; display:flex; flex-direction:column; gap:1em; position:relative; }
-.voice-card::before{ content:"“"; font-family:"Shippori Mincho",serif; font-size:2.6rem; color:var(--gold-deep); line-height:1; opacity:.6; }
-.voice-card p{ margin:0; font-size:.9rem; color:var(--char); line-height:1.85; }
-.voice-card .who{ font-family:"Zen Kaku Gothic New",sans-serif; font-size:.72rem; letter-spacing:.08em; color:var(--teal-deep); font-weight:700; }
-
-/* ---------- Footer ---------- */
-footer{ background:var(--ink); color:#C9D3E3; padding:60px 0 30px; font-size:.86rem; }
-footer .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; }
-footer h4{ color:var(--sand); font-size:1rem; margin-bottom:1em; }
-footer ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:.6em; }
-footer a{ color:#C9D3E3; }
-footer a:hover{ color:var(--gold); }
-.footer-bottom{ border-top:1px solid rgba(255,255,255,.12); margin-top:44px; padding-top:22px; font-size:.76rem; color:#93A0B8; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
-
-.skiplink{ position:absolute; left:-999px; top:auto; }
-.skiplink:focus{ left:16px; top:16px; z-index:999; background:var(--ink); color:var(--sand); padding:10px 16px; }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
 
-<a class="skiplink" href="#main">本文へスキップ</a>
+<helmet>
+  <meta name="description" content="日本の公民館モデルをエジプトに。学び、つどい、つなぐ社会教育の実践拠点、グローバル公民館の公式サイトです。">
+  <link rel="icon" href="images/logo-main.jpg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{margin:0;font-family:"Noto Sans JP",sans-serif;color:#222220;line-height:1.85;-webkit-font-smoothing:antialiased;background:#FFFFFF;}
+    a{color:#3E6E8E;text-decoration:none;}
+    a:hover{color:#B5502F;}
+    img{max-width:100%;display:block;}
+    details summary{list-style:none;}
+    details summary::-webkit-details-marker{display:none;}
+  </style>
+  <script src="./image-slot.js"></script>
+</helmet>
 
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="#top">
-      <img class="logo-mark" src="images/logo.png" alt="Global Kominkan ロゴ">
-      <span>Global Kominkan<small>グローバル公民館</small></span>
+<a href="#main" style="position:absolute;left:-999px;top:auto;">本文へスキップ</a>
+
+<header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(30,30,28,.1);">
+  <div style="max-width:1120px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:82px;">
+    <a href="#top" style="display:flex;align-items:center;gap:13px;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.12rem;color:#222220;">
+      <img src="images/logo-main.jpg" alt="グローバル公民館 ロゴ" style="width:48px;height:48px;flex:none;border-radius:10px;object-fit:cover;border:1px solid rgba(30,30,28,.12);background:#fff;">
+      <span>Global Kominkan<small style="display: block; font-family: 'Zen Kaku Gothic New',sans-serif; font-weight: 800; font-size: 10px; letter-spacing: .14em; color: #5B584F; border-radius: 10px; width: 118px; height: 20px; text-align: center">グローバル公民館</small></span>
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く"><span></span><span></span><span></span></button>
-    <nav class="main-nav">
-      <ul id="navList">
-        <li><a href="#global-kominkan-toha">グローバル公民館とは</a></li>
-        <li><a href="#reports">講座レポート</a></li>
-        <li><a href="#voices">参加者の声</a></li>
-        <li><a href="#taa-kominkan">エジプトの公民館（ター公民館）</a></li>
-        <li><a href="#partners">連携団体</a></li>
-        <li><a href="#support">ご支援</a></li>
+    <nav style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.85rem;">
+      <ul style="list-style: none; display: flex; gap: 1.7rem; margin: 0; padding: 0; text-align: center; font-family: Zen Kaku Gothic New">
+        <li><a href="#about" style="color: #222220; width: 152px; height: 41px; text-align: center; font-size: 15px; font-weight: 800">ホーム</a></li>
+        <li style="text-align: center"><a href="#reports" style="color: #222220; font-size: 15px; font-weight: 800">講座レポート</a></li>
+        <li style="text-align: center"><a href="#voices" style="color: #222220; font-size: 15px; font-weight: 800">参加者の声</a></li>
+        <li><a href="#taa-kominkan" style="color: #222220; text-align: center; font-weight: 800">ター公民館</a></li>
+        <li><a href="#partners" style="color: #222220; text-align: center; font-size: 15px; font-weight: 800">連携団体</a></li>
+        <li style="text-align: center"><a href="#support" style="color: #222220; font-size: 15px; font-weight: 800">ご支援</a></li>
       </ul>
     </nav>
   </div>
@@ -268,679 +48,552 @@ footer a:hover{ color:var(--gold); }
 
 <main id="main">
 
-  <section class="hero" id="top">
-    <div class="wrap">
-      <div class="hero-logo-top">
-        <img src="images/logo-main.jpg" alt="Global Kominkan グローバル公民館 ロゴ ―つどう・学ぶ・つなぐ・協力・実現―">
-      </div>
-    </div>
-    <div class="wrap hero-grid">
+  
+
+  <section id="top" style="position:relative;padding:44px 28px 60px;background:#FAFAF7;">
+    <div style="max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr .9fr; gap: 52px; align-items: center; position: relative">
       <div>
-        <span class="eyebrow">Egypt × Japan Social Education</span>
-        <h1>公民館という学びの文化を、<br>エジプトへ。<span class="accent">そして世界へ。</span></h1>
-        <p class="lead">
-          沖縄・那覇市 繁多川公民館の実践に学び、日本発の「公民館」という社会教育の仕組みを
-          エジプトの地域社会に根づかせる——それが私たち、Global Kominkan（グローバル公民館）の挑戦です。
-          学校では教えきれない生きる力を、地域の学び合いの中で育みます。
-        </p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="#reports">講座レポートを見る</a>
-          <a class="btn btn-outline" href="#support">支援について</a>
+        <span style="font-family: Trebuchet MS; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #B5734A; font-weight: 700; margin-bottom: .9em; display: inline-block; max-width: 20ch; line-height: 1.6; width: 204px; height: 69px">Egypt × Japan Social Education</span>
+        <h1 style="font-family: 'Shippori Mincho',serif; color: #222220; line-height: 1.45; margin: 0 0 .55em; font-weight: 700; text-align: center; display: flex; flex-direction: column; gap: 12px; width: 416px; height: 149px; font-size: 30px">公民館という学びの文化を、エジプトへ。<span style="color: rgb(62, 110, 142);">そして世界へ。</span></h1><p style="font-size: 1.02rem; color: #5B584F; max-width: 46ch; margin: 0 0 1.8em; width: 429px; height: 159px">沖縄・那覇市 繁多川公民館の実践に学び、日本発の「公民館」という社会教育の仕組みをエジプトの地域社会に根づかせる——それが私たち、Global Kominkan（グローバル公民館）の挑戦です。学校では教えきれない生きる力を、地域の学び合いの中で育みます。</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="#reports" style="display:inline-flex;align-items:center;gap:.5em;padding:.9em 1.6em;border-radius:3px;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.88rem;font-weight:700;background:#222220;color:#fff;">講座レポートを見る</a>
+          <a href="#support" style="display:inline-flex;align-items:center;gap:.5em;padding:.9em 1.6em;border-radius:3px;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.88rem;font-weight:700;border:1px solid #222220;color:#222220;">支援について</a>
         </div>
       </div>
       <div>
-        <div class="hero-photo">
-          <img src="images/hero-report1.jpg" alt="エジプト初のグローバル公民館講座の様子">
-          <div class="cap">第1回グローバル公民館講座（2018年2月）</div>
+        <div style="position:relative;max-width:420px;margin:0 auto;">
+          <img src="./global-kominkan-logo-mrqn5sdm-2yjd.jpeg" alt="国立アインシャムス大学での特別授業の様子" style="width: 100%; height: 300px; object-fit: scale-down; border: 1px solid rgba(30,30,28,.14); box-shadow: 0 30px 60px -30px rgba(30,30,28,.3)">
+          
+        </div>
+      </div>
+    <div style="position: absolute; left: 538px; background: #222220; color: #fff; font-family: 'Zen Kaku Gothic New',sans-serif; font-size: .7rem; letter-spacing: .06em; padding: 8px 14px; max-width: 80%; top: 383px">グロバール公民館ロゴ</div></div>
+  </section><section id="about" style="padding:88px 0;">
+    <div style="display:inline-flex;align-items:center;gap:.6em;border:1px solid #222220;border-radius:999px;padding:.3em .9em .3em .5em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;font-weight:700;color:#222220;margin-bottom:.9em;">
+        <span style="width:20px;height:20px;border-radius:50%;background:#3E6E8E;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-family:'Shippori Mincho',serif;">序</span>About
+      </div><div style="max-width:1120px;margin:0 auto;padding:0 28px;">
+      
+      <div style="max-width:660px;margin-bottom:44px;">
+        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:#B5734A;font-weight:700;">グローバル公民館とは</span>
+        <h2 style="font-family: 'Shippori Mincho',serif; color: #222220; font-size: clamp(1.6rem,3vw,2.2rem); margin: .4em 0 0; width: 714px; height: 45px">ひとりのエジプト人が見つけた、「公民館」ということば</h2>
+      </div>
+
+      <p style="max-width: 72ch; color: #5B584F; font-size: 1rem; margin-bottom: 2.2em; width: 685px; height: 146px">あなたの知恵や経験を伝える場が、ここに生まれました。日本とエジプトから始まった<strong style="color:#222220;">「グローバル公民館」</strong>は、国籍・人種・文化・宗教にとらわれない、世界住民のための学びの場です。若者が自由に自分を表現できる場をつくり、高齢者は自らの経験を次の世代へ伝えていく。お互いの知識や経験を分かち合うことで、相互理解を深めていく——それがグローバル公民館の願いです。あなたも、ここでともに学んでみませんか。</p>
+
+      <div style="background:#FAFAF7;border:1px solid rgba(30,30,28,.1);padding:32px;margin-bottom:2.6em;">
+        <img src="images/global-kominkan-concept.png" alt="グローバル公民館のコンセプト図：公民館が地域住民に奉仕し、地球上のあらゆる地域から集まった地球市民のための施設であることを示す図解" style="width:100%;max-width:760px;margin:0 auto 1.4em;object-fit:contain;background:#fff;border:1px solid rgba(30,30,28,.1);">
+        <p style="max-width:64ch;margin:0 auto;text-align:center;color:#5B584F;font-size:.98rem;"><strong style="color:#222220;">グローバル公民館</strong>は、公民館が地域住民に奉仕するように、地球上のあらゆる地域から集まった<strong style="color:#222220;">地球市民</strong>のための施設です。</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(30,30,28,.1);border:1px solid rgba(30,30,28,.1);margin-bottom:1.6em;">
+        <div style="background:#FAFAF7;padding:28px 22px;"><h4 style="font-family: 'Shippori Mincho',serif; font-size: 15px; color: #222220; margin: 0 0 .6em; overflow: visible">公民館をもっと身近に</h4><p style="font-size:.85rem;color:#5B584F;margin:0;">世界住民にとって、もっとも身近な学習拠点を目指しています。</p></div>
+        <div style="background:#FAFAF7;padding:28px 22px;"><h4 style="font-family:'Shippori Mincho',serif;font-size:1rem;color:#222220;margin:0 0 .6em;">世界平和への第一歩</h4><p style="font-size:.85rem;color:#5B584F;margin:0;">国籍・人種・文化・宗教にとらわれない学びの場を提供します。</p></div>
+        <div style="background:#FAFAF7;padding:28px 22px;"><h4 style="font-family:'Shippori Mincho',serif;font-size:1rem;color:#222220;margin:0 0 .6em;">世界と繋がる窓</h4><p style="font-size:.85rem;color:#5B584F;margin:0;">日本の公民館とインターネットでつなぎ、オンライン講座を開催しています。</p></div>
+        <div style="background:#FAFAF7;padding:28px 22px;"><h4 style="font-family: 'Shippori Mincho',serif; font-size: 15px; color: #222220; margin: 0 0 .6em">日本とエジプトの架橋</h4><p style="font-size:.85rem;color:#5B584F;margin:0;">お互いの経験を共有し合う、学び合いWin-Winの関係を目指しています。</p></div>
+      </div>
+
+      <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.2rem;margin:1.8em 0 1.4em;">「公民館」を、エジプトのことばで語りなおす</h3>
+      <p style="max-width: 72ch; color: #5B584F; font-size: 1rem; margin-bottom: 2.2em; width: 728px; height: 124px; text-align: left">公民館(Kominkan)は、日本の戦後社会教育を支えてきた地域の学び舎です。私たちはこの仕組みを直輸入するのではなく、JICA・沖縄の公民館・エジプトの大学や地域と対話を重ねながら、エジプトの文化と価値観に合った「グローバル公民館」のかたちを探ってきました。</p>
+
+
+      <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-top:1px solid rgba(30,30,28,.12);border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+        <img src="images/birth-story.jpg" alt="モハメッド・アブデルミギード氏へのインタビューの様子" style="width:150px;height:112px;object-fit:cover;border:1px solid rgba(30,30,28,.15);">
+        <div>
+          <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">ボランティア紹介 ／ 2018年2月</span>
+          <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">エジプト人のモハメド・アブデルミギード氏が語るグローバル公民館の誕生秘話</h3>
+          <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">祖先はピラミッドという偉大な遺跡を残した。では自分は、エジプトに何を残せるのだろうか——モハメッド氏がそう自問しながらたどり着いたのが、みんなが集い、ともに学ぶ「公民館」でした。2017年12月25日、エジプトで初めてのグローバル公民館講座が大盛況のうちに開催されました。</p>
+          <details style="margin-top:.9em;">
+            <summary style="cursor:pointer;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;font-weight:700;color:#3E6E8E;">▼ 続きを読む</summary>
+            <div style="margin-top:1em;padding-top:1em;border-top:1px dashed rgba(30,30,28,.2);max-width:70ch;">
+              <p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0 0 1.1em;">観光学部でエジプトの歴史を学び、旅行会社で10年以上働いていたモハメッド氏。転機となったのは内閣府事業「世界青年の船（SWY16）」への参加。13カ国から集まった約300人の若者と2カ月間生活を共にする中で「教育こそが国の運命を変える」と一念発起し、大学院で国際比較教育を専攻しました。</p>
+              <p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0;">すべての教育制度を変えるのは難しくても、社会教育なら少しずつ変えられるはず——そう考えて研究を進める中、出会ったのが「公民館」という言葉。琉球大学の井上教授の紹介で沖縄の繁多川公民館と出会い、館長・南氏のもとで公民館講座の運営を手伝う中で、グローバル公民館は「世界とつながる窓」になっていきました。</p>
+            </div>
+          </details>
+          <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：ボランティア紹介</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="reports" style="padding:88px 0;background:#F7F6F2;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 28px;">
+      <div style="display:inline-flex;align-items:center;gap:.6em;border:1px solid #222220;border-radius:999px;padding:.3em .9em .3em .5em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;font-weight:700;color:#222220;margin-bottom:.9em;background:#F7F6F2;">
+        <span style="width:20px;height:20px;border-radius:50%;background:#4F8A82;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-family:'Shippori Mincho',serif;">二</span>Chapter 2
+      </div>
+      <div style="max-width:660px;margin-bottom:52px;">
+        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:#B5734A;font-weight:700;">講座報告書 / Reports</span>
+        <h2 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:clamp(1.6rem,3vw,2.2rem);margin:.4em 0 0;">グローバル公民館講座、これまでの歩み</h2>
+        <p style="color:#5B584F;font-size:1rem;">毎回、日本側とエジプト側から発表者を迎え、質疑応答と交流を通じて理解を深めるオンライン講座です。</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-bottom:56px;">
+        <article style="background:#fff;border:1px solid rgba(30,30,28,.12);overflow:hidden;display:flex;flex-direction:column;">
+          <image-slot id="report-1-card" style="width:100%;height:150px;" shape="rect" placeholder="第1回：幼稚園講座の写真"></image-slot>
+          <div style="padding:22px 22px 26px;display:flex;flex-direction:column;gap:.7em;">
+            <span style="font-family:'Shippori Mincho',serif;font-size:.82rem;color:#B5734A;">第1回</span>
+            <h3 style="font-size:1.05rem;margin:0;color:#222220;">エジプトと日本の幼稚園の違いについて</h3>
+            <p style="font-size:.87rem;color:#5B584F;margin:0;flex:1;">日本の幼稚園教諭を招き、資格制度・生活環境・言語指導・喧嘩の仲裁法など、幼児教育の実際を比較しました。</p>
+            <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.7rem;color:#5B584F;opacity:.75;">2018年2月</span>
+          </div>
+        </article>
+        <article style="background:#fff;border:1px solid rgba(30,30,28,.12);overflow:hidden;display:flex;flex-direction:column;">
+          <image-slot id="report-4-card" style="width:100%;height:150px;" shape="rect" placeholder="第4回：空手と教育の写真"></image-slot>
+          <div style="padding:22px 22px 26px;display:flex;flex-direction:column;gap:.7em;">
+            <span style="font-family:'Shippori Mincho',serif;font-size:.82rem;color:#B5734A;">第4回</span>
+            <h3 style="font-size:1.05rem;margin:0;color:#222220;">空手と教育</h3>
+            <p style="font-size:.87rem;color:#5B584F;margin:0;flex:1;">日本とエジプトの空手家が登壇し、礼儀や克己心など空手が育む道徳的価値観について語り合いました。</p>
+            <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.7rem;color:#5B584F;opacity:.75;">2018年</span>
+          </div>
+        </article>
+        <article style="background:#fff;border:1px solid rgba(30,30,28,.12);overflow:hidden;display:flex;flex-direction:column;">
+          <image-slot id="report-6-card" style="width:100%;height:150px;" shape="rect" placeholder="第6回：公民館の機能の写真"></image-slot>
+          <div style="padding:22px 22px 26px;display:flex;flex-direction:column;gap:.7em;">
+            <span style="font-family:'Shippori Mincho',serif;font-size:.82rem;color:#B5734A;">第6回</span>
+            <h3 style="font-size:1.05rem;margin:0;color:#222220;">日本式公民館の機能（つどう・まなぶ・つなぐ）</h3>
+            <p style="font-size:.87rem;color:#5B584F;margin:0;flex:1;">公民館の3つの基本機能を紹介し、地域に根づく社会教育のしくみそのものを学ぶ回となりました。</p>
+            <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.7rem;color:#5B584F;opacity:.75;">2019年</span>
+          </div>
+        </article>
+      </div>
+
+      <div style="display:flex;flex-direction:column;">
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-report-1" style="width:150px;height:112px;" shape="rect" placeholder="第1回の写真"></image-slot><span style="position:absolute;bottom:-10px;left:-8px;background:#222220;color:#fff;font-family:'Shippori Mincho',serif;font-size:.8rem;padding:2px 10px;">01</span></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">講座報告書 ／ 2018年2月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">エジプトと日本の幼稚園の違いについて</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">エジプト初のグローバル公民館講座。日本の幼稚園教諭を招き、先生の資格制度、子どもの生活環境、言語指導のあり方、喧嘩の仲裁の仕方まで、日本の幼児教育を紹介。会場では参加者が熱心にメモを取りました。</p>
+            <details style="margin-top:.9em;"><summary style="cursor:pointer;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;font-weight:700;color:#3E6E8E;">▼ 続きを読む</summary><div style="margin-top:1em;padding-top:1em;border-top:1px dashed rgba(30,30,28,.2);max-width:70ch;"><p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0;">2017年12月25日、カイロで開催された第1回講座には45人（うち日本人12名）が参加。エジプトで12年間日本人幼稚園を運営してきた小松原先生が「日本とエジプトの幼稚園の違い」を語り、モハメッド氏が同時通訳を務めました。先生資格の有無、壁面装飾から感じる季節感、「やって」と言う代わりに「どうやるの？」と尋ねる自立心——小さな違いの数々が紹介されました。</p></div></details>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：講座報告書</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-report-2" style="width:150px;height:112px;" shape="rect" placeholder="第2回の写真"></image-slot><span style="position:absolute;bottom:-10px;left:-8px;background:#222220;color:#fff;font-family:'Shippori Mincho',serif;font-size:.8rem;padding:2px 10px;">02</span></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">講座報告書</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">エジプトと日本の小中学校の先生が語る「学校での経験」について</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">第2回は小中学校の現場に焦点を移し、日本とエジプト双方の教員が経験を語り合いました。折り紙の授業をめぐるエピソードなど、教室で実際に起きた出来事を通じて、両国の学校文化の違いと共通点が浮かび上がりました。</p>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">カテゴリー：講座報告書</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <img src="images/birth-story.jpg" alt="モハメッド氏へのインタビュー" style="width:150px;height:112px;object-fit:cover;border:1px solid rgba(30,30,28,.15);">
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">ブログ ／ 2018年2月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">繁多川公民館の役割とグローバル公民館に期待すること</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">「公民館で実際に活動をしたい」というモハメッド氏の夢を叶えたのが繁多川公民館でした。館長・南信乃介氏が地域特性や運営体制を紹介し、グローバル公民館への期待を語りました。</p>
+            <details style="margin-top:.9em;"><summary style="cursor:pointer;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;font-weight:700;color:#3E6E8E;">▼ 続きを読む</summary><div style="margin-top:1em;padding-top:1em;border-top:1px dashed rgba(30,30,28,.2);max-width:70ch;"><p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0;">那覇市には人口32万人に対し公民館が7館あり、繁多川公民館は3階建てで1階が図書館、2階・3階が公民館という構成。年間利用者は約6万1千人にのぼります。文部科学大臣優良公民館表彰など数々の受賞歴を持つ施設です。</p></div></details>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：ブログ</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-report-3" style="width:150px;height:112px;" shape="rect" placeholder="第3回の写真"></image-slot><span style="position:absolute;bottom:-10px;left:-8px;background:#222220;color:#fff;font-family:'Shippori Mincho',serif;font-size:.8rem;padding:2px 10px;">03</span></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">講座報告書</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">第3回「エジプトと日本のお母さん」</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">沖縄のお母さんとエジプトのお母さん、それぞれの発表から「子育てで大事にしていること」「子どもを尊重するとはどういうことか」を語り合いました。</p>
+            <details style="margin-top:.9em;"><summary style="cursor:pointer;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;font-weight:700;color:#3E6E8E;">▼ 続きを読む</summary><div style="margin-top:1em;padding-top:1em;border-top:1px dashed rgba(30,30,28,.2);max-width:70ch;"><p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0;">エジプトのディナ・アリさんは「人間には4つの性格タイプがある」という講座を受講し、自分自身の完璧主義に気づいたエピソードを共有。「完璧じゃない自分を認めることで、無理せず子どもの意見を尊重できるようになった」という言葉に、文化を越えた子育ての普遍性が浮かび上がりました。</p></div></details>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">カテゴリー：講座報告書</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-report-4" style="width:150px;height:112px;" shape="rect" placeholder="第4回：空手と教育の写真"></image-slot><span style="position:absolute;bottom:-10px;left:-8px;background:#222220;color:#fff;font-family:'Shippori Mincho',serif;font-size:.8rem;padding:2px 10px;">04</span></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">講座報告書</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">第4回グローバル公民館講座「空手と教育」</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">エジプトと日本、双方の空手家が登壇。空手を通じて学んだこと、エジプトの文化・価値観と空手の共通点、伝えたい道徳的・教育的価値観について語り合いました。</p>
+            <details style="margin-top:.9em;"><summary style="cursor:pointer;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;font-weight:700;color:#3E6E8E;">▼ 続きを読む</summary><div style="margin-top:1em;padding-top:1em;border-top:1px dashed rgba(30,30,28,.2);max-width:70ch;"><p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0;">エジプト側の発表者ムスタファ氏は1979年に空手を始め黒帯六段。「空手を通じて我慢強さや相手への敬意、自分を過大評価しないことを学んだ」という言葉や、体力だけでなく道徳を育む武道としての空手の魅力が語られました。</p></div></details>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">カテゴリー：講座報告書</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <img src="images/ainshams-special-class.jpg" alt="国立アインシャムス大学教育学部での特別授業の様子" style="width:150px;height:112px;object-fit:cover;border:1px solid rgba(30,30,28,.15);">
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">ブログ ／ 2018年3月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">国立アインシャムス大学教育学部で特別授業を行いました</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">比較教育を専攻する学生向けに、日本の教育制度とグローバル公民館についての特別授業を実施。名古屋大学大学院の内田直義氏が登壇し、日本の学校制度とエジプトの歴史的背景の違いを紹介しました。</p>
+            <details style="margin-top:.9em;"><summary style="cursor:pointer;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;font-weight:700;color:#3E6E8E;">▼ 続きを読む</summary><div style="margin-top:1em;padding-top:1em;border-top:1px dashed rgba(30,30,28,.2);max-width:70ch;"><p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0;">内田氏は「文化を知らないと宗教教育は理解できない」という考えのもとエジプトに住んで研究を続けている人物。宗教教育が普及した1970〜80年代のエジプトと同時代の日本の教育を比較しながら紹介し、大学の単位に含まれる授業ということもあり多くの学生が熱心に参加しました。</p></div></details>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：ブログ</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-misr" style="width:150px;height:112px;" shape="rect" placeholder="ミスル科学技術大学の写真"></image-slot></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">ブログ ／ 2018年3月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">ミスル科学技術大学で日本とエジプトの教育の違いについて講演とワークショップを行いました</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">Japan Egypt Network（JEN-Youth）の企画により講演。講演後はグループごとにテーマを決めて話し合うワークショップを行い、内容を発表し合いました。</p>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：ブログ</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-report-5" style="width:150px;height:112px;" shape="rect" placeholder="第5回の写真"></image-slot><span style="position:absolute;bottom:-10px;left:-8px;background:#222220;color:#fff;font-family:'Shippori Mincho',serif;font-size:.8rem;padding:2px 10px;">05</span></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">講座報告書</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">第5回「エジプトと日本のおもてなし」</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">エジプト側からは客人をもてなす文化について、日本側からは沖縄のおもてなしの心について発表。形は違っても根底に流れる「相手を思いやる気持ち」が共通していることが確認されました。</p>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">カテゴリー：講座報告書</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-report-6" style="width:150px;height:112px;" shape="rect" placeholder="第6回の写真"></image-slot><span style="position:absolute;bottom:-10px;left:-8px;background:#222220;color:#fff;font-family:'Shippori Mincho',serif;font-size:.8rem;padding:2px 10px;">06</span></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">講座報告書</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">第6回「日本式公民館の機能（つどう・まなぶ・つなぐ）」</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">繁多川公民館の利用者2名をゲストに招き、公民館が持つ3つの機能を一つずつ解説。グローバル公民館としてどう実現していくかを話し合いました。</p>
+            <details style="margin-top:.9em;"><summary style="cursor:pointer;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;font-weight:700;color:#3E6E8E;">▼ 続きを読む</summary><div style="margin-top:1em;padding-top:1em;border-top:1px dashed rgba(30,30,28,.2);max-width:70ch;"><p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0;">「まなぶ」担当の神村盛章さんは、繁多川公民館には45のサークルがあり年間延べ5万5千人が利用していると紹介。「つどう」担当の波平元維さんは、消えつつある沖縄の言葉「島くとぅば」を残す勉強会を紹介し、世代を越えて集い学び合う場としての公民館の姿が浮かび上がりました。</p></div></details>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">カテゴリー：講座報告書</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <img src="images/community-center-seminar.jpg" alt="国立アインシャムス大学 地域づくりセンターでのセミナーの様子" style="width:150px;height:112px;object-fit:cover;border:1px solid rgba(30,30,28,.15);">
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">ブログ ／ 2018年9月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">国立アインシャムス大学の地域づくりセンターで「地域づくりセンターの役割について」のセミナーを開催</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">南館長が、子どもの貧困や独居高齢者の孤立といった地域課題への取り組み事例を紹介し、エジプト側の活動との共通点や違いを学び合いました。</p>
+            <details style="margin-top:.9em;"><summary style="cursor:pointer;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;font-weight:700;color:#3E6E8E;">▼ 続きを読む</summary><div style="margin-top:1em;padding-top:1em;border-top:1px dashed rgba(30,30,28,.2);max-width:70ch;"><p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0;">聞き取り調査から見えてきた「子どもの貧困率29.9%」「独居高齢者の孤立」「自治会加入率20%」「消防車が入れない密集住宅地」といった具体的な地域課題と、それぞれに対する公民館の取り組みが共有されました。</p></div></details>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：ブログ</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-cooking2" style="width:150px;height:112px;" shape="rect" placeholder="意見交換会の写真"></image-slot></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">ブログ ／ 2018年9月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">「エジプトに公民館を」グローバル公民館の可能性についての意見交換会を開催</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">南信乃介氏、西山佳孝氏、イブラヒム・エルサムニ博士をゲストに迎え、公民館との出会いが人生を変えたというエルサムニ氏の体験談などを共有しました。</p>
+            <details style="margin-top:.9em;"><summary style="cursor:pointer;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;font-weight:700;color:#3E6E8E;">▼ 続きを読む</summary><div style="margin-top:1em;padding-top:1em;border-top:1px dashed rgba(30,30,28,.2);max-width:70ch;"><p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0;">沖縄在住40年のイブラヒム博士は、市役所からの依頼で公民館でエジプトについて話したことをきっかけにエジプト料理教室、レストラン経営へと発展。「あの時公民館に協力しなかったら、今頃カイロでコシャリを売っていたかもしれない」というユーモアあふれる語りに会場は笑いに包まれました。</p></div></details>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">カテゴリー：ブログ</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-report-7" style="width:150px;height:112px;" shape="rect" placeholder="第7回の写真"></image-slot><span style="position:absolute;bottom:-10px;left:-8px;background:#222220;color:#fff;font-family:'Shippori Mincho',serif;font-size:.8rem;padding:2px 10px;">07</span></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">講座報告書</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">第7回「つどう・まなぶ・つなぐ」にエジプトに必要な「協力・実現」をプラス</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">繁多川公民館の館長がエジプトを訪問して開催。最後は「義務教育」「社会教育」「スタートアップ」「異文化交流」の4テーマでグループディスカッションを行いました。</p>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">カテゴリー：講座報告書</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <img src="images/cooking-class.jpg" alt="世界の料理教室の様子" style="width:150px;height:112px;object-fit:cover;border:1px solid rgba(30,30,28,.15);">
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">ブログ ／ 2018年11月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">【料理×語学】世界の料理教室にグローバル公民館を代表して参加しました</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">沖縄で開催された多言語×料理教室にエジプト代表として参加し、アラビア語とエジプト料理（アエーシバラディ、カルカデジュース）を紹介しました。</p>
+            <details style="margin-top:.9em;"><summary style="cursor:pointer;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;font-weight:700;color:#3E6E8E;">▼ 続きを読む</summary><div style="margin-top:1em;padding-top:1em;border-top:1px dashed rgba(30,30,28,.2);max-width:70ch;"><p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0;">中国語・韓国語・スペイン語と並ぶ4言語の一つとして各クラス定員はわずか5名。エジプト料理・アラビア語クラスはすぐに満員になるほどの人気でした。他のクラスでは韓国のキンパ、アルゼンチンのエンパナーダ、中国の胡麻団子なども作られ、料理を通じて多文化に触れる交流会となりました。</p></div></details>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：ブログ</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-tokkatsu" style="width:150px;height:112px;" shape="rect" placeholder="特活講座の写真"></image-slot></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">大学連携 ／ 2019年2月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">アインシャムス大学教育学部で、エジプトの大学として初めての特活講座を実施</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">体育や美術など日本の「特別活動」を取り入れた講座を初開催。全14回、教育学部の学生や新人教師、保護者など70人以上が参加しました。</p>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">カテゴリー：ブログ</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-report-8" style="width:150px;height:112px;" shape="rect" placeholder="第8回の写真"></image-slot><span style="position:absolute;bottom:-10px;left:-8px;background:#222220;color:#fff;font-family:'Shippori Mincho',serif;font-size:.8rem;padding:2px 10px;">08</span></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">講座報告書</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">第8回「エジプトと日本の歴史を比べてみよう」</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">2019年度文部科学省「EDU-Portニッポン」公認プロジェクトの一環。5000年前のピラミッドと沖縄の歴史などを比較しながら理解を深めました。</p>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">カテゴリー：講座報告書</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-report-9" style="width:150px;height:112px;" shape="rect" placeholder="第9回の写真"></image-slot><span style="position:absolute;bottom:-10px;left:-8px;background:#222220;color:#fff;font-family:'Shippori Mincho',serif;font-size:.8rem;padding:2px 10px;">09</span></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">講座報告書 ／ 2019年9月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">第9回「グローバルニュースでディスカッション」</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">エジプト側はスカッシュとハンドボールの世界的活躍を、沖縄側は東京五輪に向けた空手や在宅医療のニュースを紹介し合いました。</p>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：講座報告書</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-report-10" style="width:150px;height:112px;" shape="rect" placeholder="第10回の写真"></image-slot><span style="position:absolute;bottom:-10px;left:-8px;background:#222220;color:#fff;font-family:'Shippori Mincho',serif;font-size:.8rem;padding:2px 10px;">10</span></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">講座報告書 ／ 2019年9月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">第10回「エジプトと沖縄の食文化」</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">エジプト側は家庭料理「マハシ」を、沖縄側は「ゴーヤーチャンプルー」を紹介。全3回シリーズの最終回として、互いの料理を試食しあいました。</p>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：講座報告書</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <img src="images/entrepreneurship-workshop.jpg" alt="アインシャムス大学でのアントレプレナーシップ・ワークショップの様子" style="width:150px;height:112px;object-fit:cover;border:1px solid rgba(30,30,28,.15);">
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">EDU-Portニッポン ／ 2020年1月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">国立アインシャムス大学で公民館とアントレプレナーシップのワークショップを行いました</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">エジプトの教育課題7つを解決するビジネスアイディアをグループで話し合うワークショップを開催。モハメッド氏、南館長、西山氏がそれぞれの視点からアドバイスを行いました。</p>
+            <details style="margin-top:.9em;"><summary style="cursor:pointer;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;font-weight:700;color:#3E6E8E;">▼ 続きを読む</summary><div style="margin-top:1em;padding-top:1em;border-top:1px dashed rgba(30,30,28,.2);max-width:70ch;"><p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0;">認知能力偏重の教育、1クラスの人数の多さ、教員不足、教育の質、学習環境、短い学期、評価システムという7つのテーマについて、公民館での活動を通じて解決するビジネスアイディアが話し合われました。</p></div></details>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：認定プロジェクト</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <img src="images/aswan-university.jpg" alt="国立アスワン大学での説明会の様子" style="width:150px;height:112px;object-fit:cover;border:1px solid rgba(30,30,28,.15);">
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">EDU-Portニッポン ／ 2020年1月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">エジプト南部にある国立アスワン大学で公民館とEDU-Port公認プロジェクトの紹介を行いました</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">カイロを離れ、エジプト南部アスワンの国立大学でプロジェクトを紹介。南館長が繁多川公民館の取り組みを、モハメッド氏がこれまでの活動を紹介しました。</p>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：認定プロジェクト</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-kickoff" style="width:150px;height:112px;" shape="rect" placeholder="キックオフ説明会の写真"></image-slot></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">EDU-Portニッポン ／ 2020年1月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">2019年度EDU-Port公認プロジェクト「エジプトに公民館を作ろう！キックオフ説明会」を開催しました</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">在エジプト日本大使館と那覇市繁多川公民館の両会場をオンラインで繋いだ説明会。事前申し込みは120名にのぼりました。</p>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：認定プロジェクト</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <img src="./report-back-tokyo-mrqpo4u6-vsl3.jpg" alt="横浜での2019年度報告ミーティングの様子" style="width:150px;height:112px;object-fit:cover;border:1px solid rgba(30,30,28,.15);">
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">EDU-Portニッポン ／ 2020年2月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">エジプトに公民館を作ろう　2019年度報告ミーティングが開催されました</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">横浜市のBUKATSUDOにて、モハメッド氏、南信乃介氏、西山佳孝氏らが登壇し、カイロでの拠点づくりの進捗と今後の展開を報告しました。</p>
+            <details style="margin-top:.9em;"><summary style="cursor:pointer;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;font-weight:700;color:#3E6E8E;">▼ 続きを読む</summary><div style="margin-top:1em;padding-top:1em;border-top:1px dashed rgba(30,30,28,.2);max-width:70ch;"><p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0;">モハメッド氏は「日本人にエジプトと聞くとピラミッドを思い浮かべるが、エジプト人に日本と聞くとシステムやテクノロジー、真面目さを思い浮かべる」という対比を紹介。イスラームの教えにある「自分が死んだ後も世に役立つものを残す」という考え方から公民館づくりを志したと語りました。</p></div></details>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：認定プロジェクト</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <img src="images/edu-port-followup.jpg" alt="振り返りミーティングの様子" style="width:150px;height:112px;object-fit:cover;border:1px solid rgba(30,30,28,.15);">
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">EDU-Portニッポン ／ 2020年2月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">EDU-Portキックオフ説明会の振り返り・研修について話し合いました</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">プロジェクトメンバーが集まり、キックオフ説明会の良かった点・改善点を振り返る会を実施。アインシャムス大学地域づくりセンターでの研修準備についても話し合いました。</p>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：認定プロジェクト</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-training1" style="width:150px;height:112px;" shape="rect" placeholder="研修①の写真"></image-slot></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">EDU-Portニッポン ／ 2020年2月</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">国立アインシャムス大学 地域づくりセンターで社会教育のプログラムコーディネーターを育成する研修が始まりました</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">全5回を予定する研修がスタート。プログラムコーディネーターを目指す大人・先生・子どもという3つの立場が同時に学べる構成で、初回のテーマは「日直の役割」でした。</p>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：認定プロジェクト ／ 講座報告書</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid rgba(30,30,28,.12);align-items:start;">
+          <div style="position:relative;"><img src="images/training-2.jpg" alt="第2回研修「言葉づかい」の様子" style="width:150px;height:112px;object-fit:cover;border:1px solid rgba(30,30,28,.15);"></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">EDU-Portニッポン ／ 2020年3月7日</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">第2回 社会教育のプログラムコーディネーターを育成する研修</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">繁多川公民館との共同プロジェクト「エジプトにおける教育イノベーション創出事業」の一部として、アインシャムス大学地域づくりセンターでの研修第2回を開催。今回のテーマは「言葉づかい」でした。</p>
+            <details style="margin-top:.9em;">
+              <summary style="cursor:pointer;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.78rem;font-weight:700;color:#3E6E8E;">▼ 続きを読む</summary>
+              <div style="margin-top:1em;padding-top:1em;border-top:1px dashed rgba(30,30,28,.2);max-width:70ch;">
+                <p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0 0 1.1em;">この企画は、毎回違うEDU-Portプロジェクトメンバーが、企画から運営を通して社会教育および公民館運営に必要なスキルを学ぶもの。同時に3つの立場の参加者に学びの機会を提供しています——公民館運営のスキルを学ぶプログラムコーディネーター志望者、日本式教育の特別活動を学ぶ学校の先生、そして休日に親子で参加し特別活動を通じて学ぶ子どもたちです。</p>
+                <p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0 0 1.1em;">日時：2020年3月7日(土) 14:30〜17:30／場所：アインシャムス大学地域づくりセンター。今回のテーマは「言葉づかい」。言われたら嫌な言葉やその言葉を言われたときの気持ちを事前にアンケートし、講座がスタートしました。</p>
+                <p style="font-size:.9rem;color:#222220;line-height:1.9;margin:0;">まず、言われると嫌な言葉を発表し、どんな気持ちになるかを考えました。そのあと、どういう言葉を使うと良いかを話し合い、今から自分は何ができるのかをそれぞれが考えて実践することに。参加者は積極的に手を挙げて発表していました。本事業は2019年度文部科学省「日本型教育の海外展開推進事業（EDU-Portニッポン）」公認プロジェクトです。</p>
+              </div>
+            </details>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">著者：りむ ／ カテゴリー：2019年度EDU-Portニッポン公認プロジェクト ／ 講座報告書</div>
+          </div>
+        </article>
+
+        <article style="display:grid;grid-template-columns:150px 1fr;gap:26px;padding:32px 0;align-items:start;">
+          <div style="position:relative;"><image-slot id="thumb-badge" style="width:150px;height:112px;background:#fff;" shape="rect" fit="contain" placeholder="EDU-Portニッポン認定バッジ"></image-slot></div>
+          <div>
+            <span style="display:inline-block;margin-bottom:.6em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.68rem;letter-spacing:.1em;color:#3E6E8E;text-transform:uppercase;">令和元年度</span>
+            <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.15rem;margin:0 0 .3em;">「日本型教育の海外展開推進事業（EDU-Portニッポン）」パイロット事業 公認プロジェクトに選定</h3>
+            <p style="color:#5B584F;max-width:70ch;margin:0;font-size:.92rem;">代表機関：特定非営利活動法人 1万人井戸端会議。事業名は「エジプトにおける教育イノベーション創出事業〜日本式公民館の運営および社会教育の学びを通じて〜」。</p>
+            <div style="margin-top:14px;"><img src="images/edu-port-badge.png" alt="EDU-Portニッポン 認定バッジ" style="width:90px;height:90px;object-fit:contain;background:#fff;border:1px solid rgba(30,30,28,.12);padding:8px;"></div>
+            <div style="font-size:.76rem;color:#5B584F;opacity:.75;margin-top:.6em;">カテゴリー：認定プロジェクト</div>
+          </div>
+        </article>
+
+      </div>
+
+      <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.2rem;margin:2.6em 0 1.4em;">草の根の講座から、国が認めるプロジェクトへ</h3>
+      <p style="max-width:72ch;color:#5B584F;font-size:1rem;margin-bottom:2em;">2018年、インターネット越しの小さな講座から始まった取り組みは、沖縄・那覇市 繁多川公民館との協働を経て、日本の国家プロジェクトの認定へとつながりました。</p>
+      <div style="position:relative;padding-left:28px;border-left:1px solid rgba(30,30,28,.2);">
+        <div style="position:relative;padding-bottom:42px;">
+          <span style="position:absolute;left:-33px;top:4px;width:10px;height:10px;border-radius:50%;background:#B5734A;border:2px solid #F7F6F2;display:block;"></span>
+          <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.76rem;letter-spacing:.12em;color:#3E6E8E;font-weight:700;">2018年2月</div>
+          <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.1rem;margin:.25em 0 .35em;">エジプト初のグローバル公民館講座、開催</h3>
+          <p style="color:#5B584F;margin:0;max-width:62ch;">「エジプトと日本の幼稚園の違いについて」をテーマに、第1回講座を開催。熱心にメモを取る参加者の姿から、熱意が伝わってきました。</p>
+        </div>
+        <div style="position:relative;padding-bottom:42px;">
+          <span style="position:absolute;left:-33px;top:4px;width:10px;height:10px;border-radius:50%;background:#B5734A;border:2px solid #F7F6F2;display:block;"></span>
+          <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.76rem;letter-spacing:.12em;color:#3E6E8E;font-weight:700;">2018–2019年</div>
+          <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.1rem;margin:.25em 0 .35em;">テーマを広げながら講座を継続</h3>
+          <p style="color:#5B584F;margin:0;max-width:62ch;">「学校での経験」「お母さんのあり方」「空手と教育」「おもてなし」など、文化・価値観をテーマにした講座を重ねました。</p>
+        </div>
+        <div style="position:relative;padding-bottom:42px;">
+          <span style="position:absolute;left:-33px;top:4px;width:10px;height:10px;border-radius:50%;background:#B5734A;border:2px solid #F7F6F2;display:block;"></span>
+          <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.76rem;letter-spacing:.12em;color:#3E6E8E;font-weight:700;">2019年</div>
+          <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.1rem;margin:.25em 0 .35em;">「公民館の機能」そのものを学ぶ段階へ</h3>
+          <p style="color:#5B584F;margin:0;max-width:62ch;">「つどう・まなぶ・つなぐ」に、エジプトに必要な「協力」「実現」を加えた独自の5機能モデルを提案しました。</p>
+        </div>
+        <div style="position:relative;padding-bottom:42px;">
+          <span style="position:absolute;left:-33px;top:4px;width:10px;height:10px;border-radius:50%;background:#B5734A;border:2px solid #F7F6F2;display:block;"></span>
+          <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.76rem;letter-spacing:.12em;color:#3E6E8E;font-weight:700;">令和元年度</div>
+          <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.1rem;margin:.25em 0 .35em;">「EDU-Portニッポン」パイロット事業に認定</h3>
+          <p style="color:#5B584F;margin:0;max-width:62ch;">代表機関・1万人井戸端会議のもと「エジプトにおける教育イノベーション創出事業」が公認プロジェクトに選ばれました。</p>
+        </div>
+        <div style="position:relative;">
+          <span style="position:absolute;left:-33px;top:4px;width:10px;height:10px;border-radius:50%;background:#B5734A;border:2px solid #F7F6F2;display:block;"></span>
+          <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.76rem;letter-spacing:.12em;color:#3E6E8E;font-weight:700;">2019–2020年</div>
+          <h3 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:1.1rem;margin:.25em 0 .35em;">認定プロジェクトを、実際の講座・研修へ</h3>
+          <p style="color:#5B584F;margin:0;max-width:62ch;">全5回の「社会教育のプログラムコーディネーター育成研修」がスタートしましたが、新型コロナウイルスの影響で研修はしばらく休止となりました。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="global-kominkan-toha">
-    <div class="wrap">
-      <div class="chapter-badge"><span class="dot">序</span>About</div>
-      <div class="section-head">
-        <span class="eyebrow">グローバル公民館とは</span>
-        <h2>ひとりのエジプト人が見つけた、「公民館」ということば</h2>
+  <section id="voices" style="padding:88px 0;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 28px;">
+      <div style="max-width:660px;margin-bottom:52px;">
+        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:#B5734A;font-weight:700;">Voices</span>
+        <h2 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:clamp(1.6rem,3vw,2.2rem);margin:.4em 0 0;">参加者の声</h2>
+        <p style="color:#5B584F;font-size:1rem;">グローバル公民館講座に参加された、日本とエジプトの方々の感想の一部をご紹介します。</p>
       </div>
-
-      <p class="toha-lead">あなたの知恵や経験を伝える場が、ここに生まれました。日本とエジプトから始まった<strong>「グローバル公民館」</strong>は、国籍・人種・文化・宗教にとらわれない、世界住民のための学びの場です。若者が自由に自分を表現できる場をつくり、高齢者は自らの経験を次の世代へ伝えていく。お互いの知識や経験を分かち合うことで、相互理解を深めていく——それがグローバル公民館の願いです。あなたも、ここでともに学んでみませんか。</p>
-
-      <div class="feature-grid">
-        <div class="feature-card"><h4>公民館をもっと身近に</h4><p>世界住民にとって、もっとも身近な学習拠点を目指しています。</p></div>
-        <div class="feature-card"><h4>世界平和への第一歩</h4><p>国籍・人種・文化・宗教にとらわれない学びの場を提供します。</p></div>
-        <div class="feature-card"><h4>世界と繋がる窓</h4><p>日本の公民館とグローバル公民館をインターネットでつなぎ、オンライン講座を開催しています。</p></div>
-        <div class="feature-card"><h4>日本とエジプトの架橋</h4><p>お互いの経験を共有し合う、学び合いWin-Winの関係を目指しています。</p></div>
-      </div>
-      <a class="toha-more" href="https://global-kominkan.net/about/" target="_blank" rel="noopener">グローバル公民館についてもっと詳しく＞</a>
-
-      <h3 class="sub-head">「公民館」を、エジプトのことばで語りなおす</h3>
-      <p class="toha-lead">
-        公民館(Kominkan)は、日本の戦後社会教育を支えてきた地域の学び舎です。
-        私たちはこの仕組みを直輸入するのではなく、JICA・沖縄の公民館・エジプトの大学や地域と対話を重ねながら、
-        エジプトの文化と価値観に合った「グローバル公民館」のかたちを探ってきました。
-      </p>
-      <div class="mission-grid" id="function" style="margin-bottom:2.6em;">
-        <div class="mission-card"><span class="kanji">学</span><h3>まなぶ｜Learn</h3><p>子育て、教育、文化をテーマにした講座やワークショップで、日本とエジプトの知恵を学び合う。</p></div>
-        <div class="mission-card"><span class="kanji">集</span><h3>つどう｜Gather</h3><p>世代や立場を超えた人びとが集い、対話する場をつくる。公民館は「教室」ではなく「広場」。</p></div>
-        <div class="mission-card"><span class="kanji">繋</span><h3>つなぐ｜Connect</h3><p>学校教育と社会教育、日本とエジプト、行政と地域住民——分断されがちな関係を橋渡しする。</p></div>
-        <div class="mission-card"><span class="kanji">協</span><h3>協力｜Cooperate</h3><p>行政・大学・企業・地域リーダーと連携し、一人では実現できない取り組みを共につくる。</p></div>
-        <div class="mission-card"><span class="kanji">実</span><h3>実現｜Implement</h3><p>語り合いを終着点にせず、実際の教育イノベーションとして地域に落とし込み、根づかせる。</p></div>
-      </div>
-
-      <div class="blog-list">
-        <article class="blog-row" id="about-toha">
-          <div class="thumb"><img src="images/logo.png" alt="Global Kominkan ロゴ"></div>
-          <div>
-            <span class="tag">グローバル公民館とは</span>
-            <h3>グローバル公民館とは</h3>
-            <p>世界青年の船（SWY16）への参加をきっかけに日本の教育へ関心を抱いたモハメッド・アブデルミギード氏。エジプトの教育を変えたいという思いを抱きながらも、制度全体を変える難しさを感じ、社会教育（生涯学習）の分野に目を向けました。インターネットで日本の生涯学習について調べる中で出会ったのが「公民館」という言葉。地域の人々が集まり、ともに学び、助け合い、つながる場所——それは彼が探し求めていたものでした。公民館は地域住民にとってもっとも身近な学びの拠点。エジプトで始まったグローバル公民館は、国籍を越えた「世界住民」としてエジプトと日本をつなぎ、ともに学び合う活動としてスタートしました。</p>
-            <details><summary>続きを読む</summary><div class="full-text">
-              <p>将来の職業を予測することすら難しい時代に、子どもたちに何を教えられるのか——モハメッド氏（ギド）はそう問いかけます。祖父母の職業、自分の職業、そして数十年後の子や孫の職業。それを知ることは誰にもできません。私たちが受けてきた教育がこの先も役立つとは限らない中で、数十年後を推測して教育を行うのは、暗い部屋で見えないものを準備するようなもの。彼らに今教えられることがあるとすれば、それは「生涯学習」——自分に合った手段や方法を自ら選び、生涯を通じて学び続ける力ではないか、とモハメッド氏は語ります。</p>
-              <p>グローバル公民館は、国籍・人種・文化・宗教にとらわれない学びの機会を提供し、世界住民の生涯学習を応援しています。エジプトでの活動を始めるにあたり、日本で公民館の役割について学び、実際に公民館講座を開催したときの映像は<a href="https://www.youtube.com/channel/UCYJ7LR2J3VJKxVAPo34AIJA" target="_blank" rel="noopener">公式YouTubeチャンネル</a>でご覧いただけます。</p>
-            </div></details>
-            <div class="meta">カテゴリー：グローバル公民館とは</div>
-          </div>
-        </article>
-
-        <article class="blog-row" id="birth-story-toha">
-          <div class="thumb"><img src="images/birth-story.jpg" alt="モハメッド・アブデルミギード氏へのインタビューの様子"></div>
-          <div>
-            <span class="tag">ボランティア紹介 ／ 2018年2月</span>
-            <h3>エジプト人のモハメド・アブデルミギード氏が語るグローバル公民館の誕生秘話</h3>
-            <p>祖先はピラミッドという偉大な遺跡を残した。では自分は、エジプトに何を残せるのだろうか——モハメッド氏がそう自問しながらたどり着いたのが、みんなが集い、ともに学ぶ「公民館」でした。義務教育を変えるのは難しくても、社会教育（生涯学習）であれば少しずつ変えていけるはず。日本の教育について学んだことをFacebookページ「グローバル公民館」（主にアラビア語）で発信し続け、登録者は3,000人を突破。2017年12月25日、平日にもかかわらず多くのエジプト人が集まり、エジプトで初めてのグローバル公民館講座が大盛況のうちに開催されました。</p>
-            <details><summary>続きを読む</summary><div class="full-text">
-              <p>観光学部でエジプトの歴史を学び、旅行会社で10年以上働いていたモハメッド氏。祖先が残した遺跡の偉大さを世界中の観光客に伝えることに誇りを感じる一方で、「5,000年後の子孫は、私たちの生きた時代をどう思い出すだろうか」「自分は子や孫に何を残せるのか」と考えるようになったといいます。転機となったのは、内閣府の事業「世界青年の船（SWY16）」への参加。13カ国から集まった約300人の若者と2カ月間生活を共にする中で、国によって物事の受け止め方や発想が異なることに気づき、「教育こそが国の運命を変える」と一念発起して大学に入学、国際比較教育を専攻しました。</p>
-              <p>すべての教育制度を変えるのは難しくても、社会教育なら少しずつ変えられるはず——そう考えて大学院で研究を進める中、インターネットで日本の生涯学習を調べていて出会ったのが「公民館」という言葉でした。地域のすべての人々が集まり、ともに学び、つながる場所。それはまさに彼が探し求めていたものでした。</p>
-              <p>2011年、エジプト革命（アラブの春）で警察が機能しなくなった際、脱走した受刑者が自分の住む地域に向かっているとの報道を受け、近隣住民と交代で24時間の見守りを行った経験も、地域のつながりの大切さを実感させる出来事だったといいます。緊急時に助けてくれるのは遠くの家族ではなく、地域の住民同士。琉球大学の井上教授から学んだ「センター」「コミュニティ」「コミュニティ・ラーニング・センター」という3つのタイプの違いを経て、実際に紹介されたのが沖縄の繁多川公民館でした。館長の南氏から話を聞き、実際に公民館講座の運営を手伝う中で、グローバル公民館は「世界とつながる窓」になっていきます。</p>
-              <p>「公民館はあまりに身近な存在だからこそ、その大切さに気づいていない人が多いのではないか」とモハメッド氏。国境や国籍を越え、地域住民=世界住民としてお互いに学び合い、新たな価値が生まれることに、大きな魅力を感じていると語っています。</p>
-            </div></details>
-            <div class="meta">著者：りむ ／ カテゴリー：ボランティア紹介</div>
-          </div>
-        </article>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+        <div style="background:#FAFAF7;border:1px solid rgba(30,30,28,.1);padding:26px 24px;"><p style="margin:0;font-size:.9rem;color:#222220;">日本の公民館活動に劣らないくらい、参加者の多くが前のめりになって参加されていたことが印象的でした。</p><span style="display:block;margin-top:1em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;color:#3E6E8E;font-weight:700;">日本人参加者</span></div>
+        <div style="background:#FAFAF7;border:1px solid rgba(30,30,28,.1);padding:26px 24px;"><p style="margin:0;font-size:.9rem;color:#222220;">文化交流の場としてとてもよかった。講師、通訳、会場などすべてボランティアが集って、全員で取り組んだということが良かったです。</p><span style="display:block;margin-top:1em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;color:#3E6E8E;font-weight:700;">エジプト人参加者</span></div>
+        <div style="background:#FAFAF7;border:1px solid rgba(30,30,28,.1);padding:26px 24px;"><p style="margin:0;font-size:.9rem;color:#222220;">コーランの教えには、お互いの違いから学ぶために国籍や顔つきの違いをつくった、という考え方があります。それが一期一会を大切にする心につながっていると思いました。</p><span style="display:block;margin-top:1em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;color:#3E6E8E;font-weight:700;">エジプト人参加者</span></div>
+        <div style="background:#FAFAF7;border:1px solid rgba(30,30,28,.1);padding:26px 24px;"><p style="margin:0;font-size:.9rem;color:#222220;">「エジプトに生まれてきてよかったか？」という問いに、次々と自分の国の良さを楽しそうに話している姿が印象的でした。</p><span style="display:block;margin-top:1em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;color:#3E6E8E;font-weight:700;">日本人参加者</span></div>
+        <div style="background:#FAFAF7;border:1px solid rgba(30,30,28,.1);padding:26px 24px;"><p style="margin:0;font-size:.9rem;color:#222220;">みんなで集まると新しいアイデアが生まれることを実感しました。学ぶことに年齢は関係ありません。</p><span style="display:block;margin-top:1em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;color:#3E6E8E;font-weight:700;">エジプト人参加者</span></div>
+        <div style="background:#FAFAF7;border:1px solid rgba(30,30,28,.1);padding:26px 24px;"><p style="margin:0;font-size:.9rem;color:#222220;">何かの講義を聞いて終わると思っていましたが、ディスカッションにつながってとても良い学びになりました。</p><span style="display:block;margin-top:1em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;color:#3E6E8E;font-weight:700;">エジプト人の学生</span></div>
       </div>
     </div>
   </section>
 
-  <section id="reports">
-    <div class="wrap">
-      <div class="chapter-badge"><span class="dot">二</span>Chapter 2</div>
-      <div class="section-head">
-        <span class="eyebrow">講座報告書 / Reports</span>
-        <h2>グローバル公民館講座、これまでの歩み</h2>
-        <p>毎回、日本側とエジプト側から発表者を迎え、質疑応答と交流を通じて理解を深めるオンライン講座です。全ての記録を授業回ごとにまとめました。</p>
+  <section id="taa-kominkan" style="padding:88px 0;background:#F7F6F2;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 28px;">
+      <div style="display:inline-flex;align-items:center;gap:.6em;border:1px solid #222220;border-radius:999px;padding:.3em .9em .3em .5em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;font-weight:700;color:#222220;margin-bottom:.9em;background:#F7F6F2;">
+        <span style="width:20px;height:20px;border-radius:50%;background:#4F8A82;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-family:'Shippori Mincho',serif;">三</span>Chapter 3
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+        <div>
+          <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:#B5734A;font-weight:700;">Our Home Base in Egypt</span>
+          <h2 style="font-family: 'Shippori Mincho',serif; color: #222220; font-size: clamp(1.6rem,3vw,2.2rem); margin: .3em 0 .2em; width: 549px; height: 44px">Egyptian Kominkan（Taa Kominkan）</h2>
+          <span style="display:block;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.85rem;color:#5B584F;margin-bottom:1.2em;">エジプトの公民館（ター公民館）</span>
+          
+          <p style="color: #5B584F; margin: 0 0 1em; width: 764px; height: 121px">Global Kominkanがオンライン講座を通じて育んできた学びのネットワークを、エジプトの地域に実際に根づかせる拠点——それが Egyptian Kominkan、通称「ター公民館」です。日本の公民館が地域の茶の間であるように、ここもまた、世代や立場を越えた人びとが日常的に立ち寄り、学び、つながる「もう一つの茶の間」を目指しています。</p><p style="color:#5B584F;margin:0;">エジプトで初めてグローバル公民館講座を立ち上げたモハメッド・アブデルミギード氏を中心に、那覇市 繁多川公民館の知見を取り入れながら、日常的に人が集える物理的な場づくりを進めています。</p>
+          <div style="margin-top:1.4em;font-size:.82rem;color:#5B584F;background:#EFEDE6;border-left:3px solid #B5734A;padding:.8em 1em;"><br></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:14px;">
+          
+          
+          
+        </div>
       </div>
 
-      <div class="report-grid" style="margin-bottom:56px;">
-        <article class="card">
-          <img class="card-photo" src="images/report-1.jpg" alt="エジプトと日本の幼稚園の違いについて講座の様子">
-          <div class="card-body">
-            <span class="num">第1回</span>
-            <h3>エジプトと日本の幼稚園の違いについて</h3>
-            <p>日本の幼稚園教諭を招き、資格制度・生活環境・言語指導・喧嘩の仲裁法など、幼児教育の実際を比較しました。</p>
-            <span class="meta">2018年2月</span>
-          </div>
-        </article>
-        <article class="card">
-          <img class="card-photo" src="images/report-4.jpg" alt="空手と教育の講座の様子">
-          <div class="card-body">
-            <span class="num">第4回</span>
-            <h3>空手と教育</h3>
-            <p>日本とエジプトの空手家が登壇し、礼儀や克己心など空手が育む道徳的価値観について語り合いました。</p>
-            <span class="meta">2018年</span>
-          </div>
-        </article>
-        <article class="card">
-          <img class="card-photo" src="images/report-6.jpg" alt="公民館の機能についての講座の様子">
-          <div class="card-body">
-            <span class="num">第6回</span>
-            <h3>日本式公民館の機能（つどう・まなぶ・つなぐ）</h3>
-            <p>公民館の3つの基本機能を紹介し、地域に根づく社会教育のしくみそのものを学ぶ回となりました。</p>
-            <span class="meta">2019年</span>
-          </div>
-        </article>
+      <div style="background:#fff;border:1px solid rgba(30,30,28,.1);padding:32px;margin-top:44px;">
+        <img src="images/taa-model-sustainability.png" alt="NPO法人「1万人」との協働によるTaaモデルの持続化：グローバル公民館スタッフ・CLCS、青少年・教員、トレーニーの3者と社会的新興企業（LLC）を結ぶ図解" style="width:100%;max-width:900px;margin:0 auto 1.4em;object-fit:contain;background:#fff;border:1px solid rgba(30,30,28,.1);">
+        <p style="max-width:72ch;margin:0 auto;color:#5B584F;font-size:.95rem;">NPO法人「1万人井戸端会議」との協働により、ター公民館モデルの持続化を目指しています。社会的新興企業（LLC）の設立を通じた投資法を軸に、①グローバル公民館スタッフ／CLCS（コミュニティベースのファシリテーターと日本の公民館）、②青少年・教員（コーディネーター、通訳、トレーナーなど）、③KGからシニアまでの幅広いトレーニーという3つの立場が支え合う体制を築いています。</p>
       </div>
 
-      <div class="blog-list">
+      <img src="images/ta-kominkan-family.jpg" alt="エジプトター公民館 TA-KOMINKAN FAMILY：つどい・まなび・つなぐ・協力・実現を表すキャラクターたち" style="width:100%;max-width:900px;margin:44px auto 0;display:block;border:1px solid rgba(30,30,28,.1);">
 
-        <article class="blog-row" id="report-1">
-          <div class="thumb"><img src="images/report-1.jpg" alt="第1回講座の様子"><span class="num">01</span></div>
-          <div>
-            <span class="tag">講座報告書 ／ 2018年2月</span>
-            <h3>エジプトと日本の幼稚園の違いについて</h3>
-            <p>エジプト初のグローバル公民館講座。インターネットを通じて日本の幼稚園教諭を招き、先生の資格制度、子どもの生活環境、言語指導のあり方、そして喧嘩の仲裁の仕方まで、具体的なエピソードとともに日本の幼児教育を紹介。会場では参加者が熱心にメモを取り、「エジプトをより良い国に変えていきたい」という熱意があふれる回となりました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：講座報告書</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>「エジプトでグローバル公民館講座？」——そんな噂を聞きつけて会場に足を運ぶと、熱心にメモを取るエジプト人たちの姿がありました。2017年12月25日、首都カイロ（カッタメイヤ）のQalam associationで開催された第1回講座には45人（うち日本人12名）が参加。エジプトで12年間日本人幼稚園を運営してきた小松原先生が、インターネット越しに「日本とエジプトの幼稚園の違い」を語り、モハメッド氏が同時通訳を務めました。</p>
-<p>先生資格の有無、壁面装飾から感じる季節感、食べ物と製作を分けて考える習慣、そして「やって」と言う代わりに「どうやるの？」と尋ねる自立心——日本の幼稚園を特徴づける小さな違いの数々が紹介され、参加者からは教育のあり方を考え直すきっかけになったとの声が寄せられました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="report-2">
-          <div class="thumb"><img src="images/report-2.jpg" alt="第2回講座の様子"><span class="num">02</span></div>
-          <div>
-            <span class="tag">講座報告書</span>
-            <h3>エジプトと日本の小中学校の先生が語る「学校での経験」について</h3>
-            <p>第2回は小中学校の現場に焦点を移し、日本とエジプト双方の教員が自らの経験を語り合いました。折り紙の授業をめぐるエピソードなど、教室で実際に起きた出来事を通じて、両国の学校文化の違いと共通点が浮かび上がりました。</p>
-            <div class="meta">カテゴリー：講座報告書</div>
-          </div>
-        </article>
-
-        <article class="blog-row" id="birth-story">
-          <div class="thumb"><img src="images/birth-story.jpg" alt="モハメッド・アブデルミギード氏へのインタビューの様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">ブログ ／ 2018年2月</span>
-            <h3>エジプト人のモハメド・アブデルミギード氏が語るグローバル公民館の誕生秘話</h3>
-            <p>「世界青年の船（SWY16）」への参加をきっかけに教育への関心を深めた代表・モハメッド・アブデルミギード氏へのインタビュー。祖先が遺跡を残したように自分は何を残せるのかという問いから、義務教育ではなく社会教育（生涯学習）に活路を見出し、大学院での研究の中で「公民館」という言葉に出会うまでの歩みを語ります。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：ブログ</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>祖先がピラミッドという偉大な遺跡を残したように、自分は何を残せるのだろうか——モハメッド・アブデルミギード氏がそう自問しながらたどり着いたのが「公民館」でした。観光学部を卒業し旅行会社で10年以上働いていた氏は、内閣府の事業「世界青年の船（SWY16）」に参加したことをきっかけに教育への関心を深め、国際比較教育を学ぶため大学院へ進学。義務教育を変えるのは難しくても、社会教育（生涯学習）なら少しずつ変えていけるはずだと考え、修士論文の調査でたどり着いたのが「公民館」という言葉でした。</p>
-<p>2011年のアラブの春で警察が機能しなくなった際、近所の住民と交代で地域を警備した経験から「緊急時に助けてくれるのは遠くの家族ではなく地域の住民」という気づきを得たことも、公民館への思いを強めたといいます。琉球大学の井上教授から学んだ「センター」「コミュニティ」「コミュニティ・ラーニング・センター」という3つのタイプの違いを経て出会ったのが、沖縄の繁多川公民館でした。2017年12月25日、ついにエジプトで初めてのグローバル公民館講座が開催され、大盛況のうちに幕を開けました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="hantagawa-role">
-          <div class="thumb"><img src="images/hantagawa-role.jpg" alt="繁多川公民館の地域の様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">ブログ ／ 2018年2月</span>
-            <h3>繁多川公民館の役割とグローバル公民館に期待すること</h3>
-            <p>「公民館で実際に活動をしたい」というモハメッド氏の夢を叶えたのが繁多川公民館でした。那覇市最南端、人口32万人に公民館7館という制度の中で、館長・南信乃介氏が繁多川公民館の地域特性や運営体制を紹介し、グローバル公民館への期待を語りました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：ブログ</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>初めての講座のテーマは「いちゃりばちょーでー」——沖縄の言葉で「一度会ったら皆兄弟」という意味です。いじめや差別をなくすため、見た目や文化、意見の違いを認め合いながら共存するために何ができるか。それが2018年1月6日に始まった、モハメッド氏帰国後初となる、繁多川公民館との共催講座の出発点でした。</p>
-<p>紹介された繁多川公民館の館長・南信乃介氏は、沖縄県那覇市出身。京都精華大学で市民参加まちづくりを学び、平成26年に特定非営利活動法人1万人井戸端会議を設立、平成27年から公民館の指定管理者を務めています。繁多川公民館は文部科学大臣優良公民館表彰など数々の受賞歴を持つ施設。那覇市には人口32万人に対し公民館が7館あり、繁多川公民館は3階建てで1階が図書館、2階・3階が公民館という構成。年間利用者は約6万1千人にのぼります。「公民館で実際に活動をしたい」というモハメッド氏の夢を、この繁多川公民館との出会いが叶えることになりました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="report-3">
-          <div class="thumb"><img src="images/report-3.jpg" alt="第3回講座の様子"><span class="num">03</span></div>
-          <div>
-            <span class="tag">講座報告書</span>
-            <h3>第3回グローバル公民館講座「エジプトと日本のお母さん」</h3>
-            <p>沖縄のお母さんとエジプトのお母さん、それぞれの発表から「子育てで大事にしていること」「学校や地域での保護者の関わり方」「子どもを尊重するとはどういうことか」を語り合いました。日本の母への質問タイムや沖縄側からの逆質問もあり、双方向の学び合いとなりました。</p>
-            <div class="meta">カテゴリー：講座報告書</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>第3回のテーマは「お母さん」。沖縄の伊良波さんとエジプトのディナ・アリさんという、環境の異なる2人の母親が家庭教育で大切にしていることを語り合いました。伊良波さんは3児の母として、生活習慣を整えること、なるべく家族で食卓を囲むこと、子どもの意志を尊重しながらも足りない部分をアドバイスすることを心がけていると紹介。学校行事やPTA活動を通じて地域と関わる姿も語られました。</p>
-<p>一方ディナ・アリさんは、性格の異なる2人の子どもとの向き合い方に悩んだ経験から、人間には4つの性格タイプがあるという講座を受講し、自分自身の完璧主義に気づいたエピソードを共有。「完璧じゃない自分を認めることで、無理せず子どもの意見を尊重できるようになった」という言葉に、文化を越えた子育ての普遍性が浮かび上がりました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="ideal-kominkan">
-          <div class="thumb"><img src="images/ideal-kominkan.jpg" alt="モハメッド・アブデルミギード氏インタビューの様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">ブログ ／ 2018年2月</span>
-            <h3>モハメッド・アブデルミギード氏が目指す理想の公民館とは？</h3>
-            <p>貧富の差や宗教による分断が根強いエジプトで、モハメッド氏が思い描く公民館の姿へのインタビュー。「学歴や社会的地位に関係なく、誰の経験にも価値がある」という信念のもと、先進国からだけでなく発展途上国からも学び合える場をつくりたいという思いを語りました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：ブログ</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>エジプトで公民館づくりを始めたモハメッド氏に、目指す理想の姿についてインタビュー。エジプトは貧富の差が激しく、宗教の影響も強い社会です。モスクや教会での活動は日本の公民館と似ていますが、宗教による縛りがあるため同じ宗教の信者しか参加できません。「神様の前では貧富の差に関係なく平等に祈りを捧げるのに、学習の場ではそうではない」という違和感から、学歴や社会的地位に関係なく誰もが経験を共有できる場としての公民館を思い描くようになったといいます。</p>
-<p>「実際に社会階級に関係なく共に学べる場を作れるのか、と問われると言葉を失ってしまう」と、エジプト社会に根強い階級意識という現実的な難しさも率直に語られました。それでも「先進国だけでなく発展途上国からも学べることがあるはず」「祖先が残した知恵と教訓を、私たちもそれぞれの立場から語り合い、後世に伝えていきたい」という思いのもと、自分の子や孫の世代までかけて少しずつ輪を広げていきたいという願いが語られました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="report-4">
-          <div class="thumb"><img src="images/report-4.jpg" alt="第4回講座の様子"><span class="num">04</span></div>
-          <div>
-            <span class="tag">講座報告書</span>
-            <h3>第4回グローバル公民館講座「空手と教育」</h3>
-            <p>エジプトと日本、双方の空手家が登壇。空手を始めたきっかけや、空手を通じて学んだこと、エジプトの文化・価値観と空手の共通点、そして弟子たちに伝えたい道徳的・教育的価値観について語り合いました。沖縄という空手発祥の地ならではの視点も紹介され、質問タイムも大いに盛り上がりました。</p>
-            <div class="meta">カテゴリー：講座報告書</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>「オッス」の挨拶で始まった第4回のテーマは「空手と教育」。空手発祥の地・沖縄と、エジプトの空手家が、それぞれの経験を語り合いました。エジプト側の発表者ムスタファ氏は1979年に空手を始め黒帯六段、学校での空手普及やエジプト空手連盟の理事も務める人物。ブルース・リーの映画をきっかけに空手と出会い、軍隊での試合を経て指導者の道へと進んだ歩みが紹介されました。</p>
-<p>「空手を通じて我慢強さや相手への敬意、自分を過大評価しないことを学んだ」というムスタファ氏の言葉や、「動物は人間より力が強いが、人間は能力（頭）で動物をコントロールできる」という空手の哲学の紹介など、体力だけでなく道徳を育む武道としての空手の魅力が語られました。講座の途中では本場の型が披露され、参加者を圧倒しました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="ainshams-special-class">
-          <div class="thumb"><img src="images/ainshams-special-class.jpg" alt="国立アインシャムス大学教育学部での特別授業の様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">ブログ ／ 2018年3月</span>
-            <h3>国立アインシャムス大学教育学部で特別授業を行いました</h3>
-            <p>比較教育を専攻する学生向けに、日本の教育制度とグローバル公民館についての特別授業を実施。宗教教育を研究する名古屋大学大学院の内田直義氏が登壇し、日本の学校制度やエジプトとの歴史的背景の違いを紹介しました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：ブログ</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>比較教育を専攻する国立アインシャムス大学教育学部の学生に向けて、日本の教育制度とグローバル公民館についての特別授業を実施。宗教教育を研究する名古屋大学大学院博士課程の内田直義氏が講師を務め、グローバル公民館がこの授業をコーディネートしました。大学の単位に含まれる授業ということもあり、多くの学生が熱心に参加しました。</p>
-<p>内田氏は「文化を知らないと宗教教育は理解できない」という考えのもとエジプトに住んで研究を続けている人物。日本の学校制度や自身が通った小学校の歴史的背景を説明したのち、宗教教育が普及した1970〜80年代のエジプトと同時代の日本の教育を比較しながら紹介しました。授業の後半ではグローバル公民館のこれまでの活動も紹介され、学生たちの関心を集めました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="misr-university">
-          <div class="thumb"><img src="images/misr-university.jpg" alt="ミスル科学技術大学でのワークショップの様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">ブログ ／ 2018年3月</span>
-            <h3>ミスル科学技術大学で日本とエジプトの教育の違いについての講演とワークショップを行いました</h3>
-            <p>Japan Egypt Network（JEN-Youth）の企画により、ミスル科学技術大学で日本とエジプトの教育の違いについて講演。講演後はグループごとにテーマを決めて話し合うワークショップを行い、その内容を発表し合いました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：ブログ</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>Japan Egypt Network（JEN-Youth）の企画により、ミスル科学技術大学で日本とエジプトの教育の違いについての講演とワークショップを実施。グローバル公民館代表のモハメッド氏が登壇し、両国の教育の違いについて説明しました。</p>
-<p>講演のあとはグループごとにテーマを決めて話し合うワークショップの時間に。各グループで話し合った内容をそれぞれ発表し合い、学生同士が活発に意見を交わす機会となりました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="report-5">
-          <div class="thumb"><img src="images/report-5.jpg" alt="第5回講座の様子"><span class="num">05</span></div>
-          <div>
-            <span class="tag">講座報告書</span>
-            <h3>第5回「エジプトと日本のおもてなし」</h3>
-            <p>エジプト側からは客人をもてなす文化について、日本側からは沖縄のおもてなしの心について発表。形は違っても根底に流れる「相手を思いやる気持ち」が共通していることが確認された、交流色の強い回でした。</p>
-            <div class="meta">カテゴリー：講座報告書</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>共催講座の最終回テーマは「おもてなし」。世界中から観光客が訪れるエジプトと沖縄、それぞれの"おもてなしの心"を学び合いました。発表者のモハメド・フアード氏は観光ガイド歴17年のベテラン。イスラームやキリスト教の教えに根ざしたおもてなしの精神、そして5,000年前の古代エジプトから続く客間の伝統——最も日当たりの良い部屋を客のために用意し、最良の器で迎える習慣——が紹介されました。</p>
-<p>現代のエジプトでも地域によっておもてなしの形は様々で、南部では紅茶に砂糖をたっぷり入れて濃く淹れる習慣があるなど、興味深いエピソードが続きました。「おもてなしに貧富の差は関係なく、できる範囲で精一杯もてなす」という考え方は、沖縄の「いちゃりばちょーでー」の精神とも重なるものでした。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="hiroshima-peace">
-          <div class="thumb"><img src="images/hiroshima-peace.jpg" alt="広島の平和教育イベントの様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">ブログ ／ 2018年8月</span>
-            <h3>広島の平和教育</h3>
-            <p>Japan Egypt Networkと国際交流基金カイロ事務所の協力で、広島の平和教育について学ぶイベントを開催。「あなたにとって平和とは何か」を参加者に問いかけ、政治や宗教の話題は扱わず、お互いを知り学び合うことに焦点を当てました。参加者は思いを込めて折り鶴を折り、広島県へ届けました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：ブログ</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>グローバル公民館とJapan Egypt Network（JEN-Youth）、国際交流基金カイロ事務所の協力のもと、広島の平和教育について学ぶイベントを開催。「あなたにとって平和とは何か」「平和を感じるのはどんな時か」——モハメッド氏はまず参加者にそう問いかけました。「戦争の原因や、誰が間違っていたかを追求することが目的ではありません。政治や宗教の話が出るとせっかくの平和のハーモニーが崩れてしまうので、私たちグローバル公民館ではその話をしません」という代表挨拶から会が始まりました。</p>
-<p>講師を務めたのは、広島の小学校勤務を経てエジプトに派遣されたJICAボランティア。広島の平和教育について学んだあと、参加者は思いを込めて折り鶴を折り、広島県へ届けました。つどい・つなぎ・学ぶ機会をつくり、その学びを協力して実現させることこそ平和への近道だという、グローバル公民館の理念が体現されたイベントになりました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="report-6">
-          <div class="thumb"><img src="images/report-6.jpg" alt="第6回講座の様子"><span class="num">06</span></div>
-          <div>
-            <span class="tag">講座報告書</span>
-            <h3>第6回「日本式公民館の機能（つどう・まなぶ・つなぐ）」</h3>
-            <p>テーマは「講座」から「公民館という仕組みそのもの」へ。公民館が持つ「まなぶ」「つどう」「つなぐ」という3つの機能を一つずつ解説し、グローバル公民館としてこの機能をどう実現していくかを話し合いました。</p>
-            <div class="meta">カテゴリー：講座報告書</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>9月に繁多川公民館の館長がエジプトを訪問するのを前に、日本式公民館の3つの機能「つどう・まなぶ・つなぐ」を事前学習する回として開催。繁多川公民館の利用者2名をゲストに招き、実体験をもとに紹介しました。「まなぶ」を担当した利用団体会長の神村盛章さんは、繁多川公民館には45のサークルがあり年間延べ5万5千人が利用していると紹介。育児に悩む母親向けサークルの活動や、点字教室を通じて子どもたちが社会性を育んでいる様子を語りました。</p>
-<p>「つどう」を担当した波平元維さんは、消えつつある沖縄の言葉「島くとぅば」を後世に残す勉強会を紹介。60代から80代のメンバー全員が「先生であり生徒」として、人生経験を語り合いながら老後の生き方を考え合う場になっていると話しました。世代を越えて集い、学び合う場としての公民館の姿が浮かび上がった回でした。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="community-center-seminar">
-          <div class="thumb"><img src="images/community-center-seminar.jpg" alt="国立アインシャムス大学 地域づくりセンターでのセミナーの様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">ブログ ／ 2018年9月</span>
-            <h3>国立アインシャムス大学の地域づくりセンターで「地域づくりセンターの役割について」のセミナーを開催</h3>
-            <p>エジプトの地域づくりセンター関係者を対象に、日本の公民館の役割を紹介するセミナーを開催。繁多川公民館・南館長が、子どもの貧困や独居高齢者の孤立といった地域課題への取り組み事例を紹介し、エジプト側の活動との共通点や違いを学び合いました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：ブログ</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>エジプトカイロ県にある国立アインシャムス大学の地域づくりセンターの協力のもと、「地域づくりセンターの役割について」のセミナーを開催。エジプト各地の地域づくりセンター関係者を対象に、日本の公民館の役割を紹介し、お互いの活動から共通点や違いを学び合いました。ゲストには南信乃介氏、西山佳孝氏、イブラヒム・エルサムニ博士を招きました。</p>
-<p>南館長は繁多川公民館の取り組みを紹介。地域住民への聞き取り調査から見えてきた「子どもの貧困率29.9%」「独居高齢者の孤立」「自治会加入率20%」「消防車が入れない密集住宅地」といった具体的な地域課題と、それぞれに対する公民館の取り組みが共有されました。環境の大きく異なるエジプトと日本ですが、地域の困りごとに向き合う姿勢には共通するものがあると実感できるセミナーになりました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="exchange-of-ideas">
-          <div class="thumb"><img src="images/exchange-of-ideas.jpg" alt="カイロでの意見交換会の様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">ブログ ／ 2018年9月</span>
-            <h3>「エジプトに公民館を」グローバル公民館の可能性についての意見交換会を開催</h3>
-            <p>日本学術振興会カイロ研究連絡センターの協力のもと、南信乃介氏（那覇市繁多川公民館 館長）、西山佳孝氏、イブラヒム・エルサムニ博士（沖縄国際大学教授）をゲストに迎え開催。エジプト在住の日本人やエジプト人参加者とともに、日本の公民館の歴史や、公民館との出会いが人生を変えたというエルサムニ氏の体験談などを共有し、エジプトでの公民館づくりの可能性について語り合いました。</p>
-            <div class="meta">カテゴリー：ブログ</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>日本学術振興会カイロ研究連絡センターの協力のもと開催された意見交換会。ゲストの南信乃介氏（那覇市繁多川公民館 館長）、西山佳孝氏、イブラヒム・エルサムニ博士（沖縄国際大学教授）を迎え、エジプト在住の日本人や日本で学んだ経験のあるエジプト人が参加しました。西山氏は、公民館を全国に普及させるための戦後のマニュアル「公民館図説」を紹介。国立国会図書館でしか読めない貴重な資料だといいます。</p>
-<p>特に印象的だったのは、イブラヒム博士自身の体験談でした。沖縄在住40年になる同博士は、市役所からの依頼で公民館でエジプトについて話したことをきっかけに、エジプト料理教室、そしてレストラン経営へと発展。その様子がテレビで取り上げられたことが縁で沖縄国際大学の大学院に進学し、現在は20年間で3万人の学生にアラブ・イスラーム文化を教えるまでになったといいます。「あの時公民館に協力しなかったら、今頃カイロでコシャリを売っていたかもしれない」というユーモアあふれる語りに会場は笑いに包まれました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="student-life">
-          <div class="thumb"><img src="images/student-life.jpg" alt="在エジプト日本国大使館でのイベントの様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">ブログ ／ 2018年9月</span>
-            <h3>日本の学生生活と就職活動の紹介および公民館と学校の連携（キャリア教育）について</h3>
-            <p>在エジプト日本国大使館で、日本の学生生活（小・中・高・大学）や就職活動、公民館と学校の連携について学ぶイベントを開催。日本への留学に関心のある学生や先生が多数参加し、講演後も講演者を囲んで熱心な質疑が続きました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：ブログ</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>グローバル公民館とJapan Egypt Network（JEN-Youth）、在エジプト日本国大使館の協力のもと、日本の学生生活（小・中・高・大学）や就職活動、公民館と学校の連携（キャリア教育）について学ぶイベントを開催。日本への留学を志す学生や、日本の教育に関心のある先生方が多数参加しました。</p>
-<p>南信乃介氏は、来エジプトして数日で訪れたカイロ考古学博物館やアレキサンドリアでの体験、そして「あなたの上に平安がありますように」という意味を持つアラビア語の挨拶「アッサラーム・アライクム」に込められた歴史的背景に感動したというエピソードから話を始め、日本の公民館の事例を紹介しました。イベント終了後も参加者は講演者を囲んで質問を続け、日本への強い関心がうかがえる会となりました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="report-7">
-          <div class="thumb"><img src="images/report-7.jpg" alt="第7回講座の様子"><span class="num">07</span></div>
-          <div>
-            <span class="tag">講座報告書</span>
-            <h3>第7回「つどう・まなぶ・つなぐ」にエジプトに必要な「協力・実現」をプラス</h3>
-            <p>公民館での協力と実現のあり方、春日市コミュニティスクールの魅力、郊外・地方のまちづくりと創業支援の事例、エジプトでコミュニティ運営を行う実践者の事例紹介など盛りだくさんの回。最後は「義務教育」「社会教育」「スタートアップ」「異文化交流」の4テーマに分かれてグループディスカッションを行いました。</p>
-            <div class="meta">カテゴリー：講座報告書</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>繁多川公民館の館長がエジプトを訪問して開催されたこの回では、日本式公民館の機能「つどう・まなぶ・つなぐ」に、エジプトに必要な「協力・実現」を加えるというテーマで議論が交わされました。南館長は、庭の桜の木を切ってほしいという何気ない住民相談から、地域の青年会や木工職人へとつながり、切った木が腰掛けや漆器として生まれ変わったエピソードを紹介。人と人がつながることで地域資源が活かされていく公民館の姿を語りました。</p>
-<p>JICAシニア・ボランティアの太郎良氏からは、学校・家庭・地域が連携する福岡県春日市の「コミュニティスクール」の取り組みが、西山佳孝氏からは地域の課題をビジネスで解決する人材育成の事例が紹介されました。後半は「義務教育」「社会教育」「スタートアップ」「異文化交流」の4テーマに分かれてグループディスカッションを実施。エジプトで実際にコミュニティ運営を行う実践者の事例も交え、公民館とどう協力していくかを話し合いました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="report-back-tokyo">
-          <div class="thumb"><img src="images/report-back-tokyo.jpg" alt="東京での報告会の様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">ブログ ／ 2018年9月</span>
-            <h3>「エジプトに公民館をつくろう！報告会 inTOKYO」が開催されました</h3>
-            <p>繁多川公民館・国際交流基金の助成事業として、南館長と西山氏のエジプト訪問での学びを共有する報告会を東京で開催。エジプトからはモハメッド氏もオンラインで参加し、活動報告を行いました。公益財団法人トヨタ財団のホームページにも別視点からのレポートが掲載されています。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：ブログ</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>「繁多川公民館／国際交流基金地域リーダー・若者交流助成事業」主催による報告会が東京で開催。繁多川公民館の南館長と東シナ海の小さな島ブランド株式会社の西山氏がエジプトを訪問した際の学びを共有し、公民館の可能性について語り合いました。運営サポートはトヨタ財団国内助成グループが担当。モハメッド氏もエジプトからオンラインで参加し、グローバル公民館のこれまでとこれからについて話しました。</p>
-<p>報告会の様子は、いつもの視点とは異なる公益財団法人トヨタ財団の担当者によるレポートとして、同財団のホームページにも掲載されました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="report-back-okinawa">
-          <div class="thumb"><img src="images/report-back-okinawa.jpg" alt="沖縄での報告会の様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">ブログ ／ 2018年10月</span>
-            <h3>「グローバル公民館―エジプトに公民館をつくろう！報告会 inOKINAWA」が開催されました</h3>
-            <p>東京に続き沖縄でも報告会を開催。懇親会ではエジプトの国民食「コシャリ」を参加者と一緒に調理し、エジプト文化を体験してもらいました。トヨタ財団のほか、琉球新報・沖縄タイムスにも取り上げられました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：ブログ</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>東京に続き、沖縄でも「グローバル公民館―エジプトに公民館をつくろう！」報告会を開催。運営サポートはトヨタ財団国内助成グループが担当しました。懇親会ではエジプトの国民食「コシャリ」とデザートを、いつも講座に参加してくれているメンバーと一緒に調理し、エジプト文化を体験してもらいました。参加者はエジプトの衣装を試着する体験も楽しみました。</p>
-<p>報告会の様子はトヨタ財団のホームページのほか、沖縄の地元紙「琉球新報」「沖縄タイムス」にも取り上げられ、地域メディアからも注目される取り組みとなりました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="cooking-class">
-          <div class="thumb"><img src="images/cooking-class.jpg" alt="世界の料理教室の様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">ブログ ／ 2018年11月</span>
-            <h3>【料理×語学】世界の料理教室にグローバル公民館を代表して参加しました</h3>
-            <p>沖縄で開催された多言語×料理教室にエジプト代表として参加し、アラビア語とエジプト料理（アエーシバラディ、カルカデジュース）を紹介。中国語・韓国語・スペイン語と並ぶ4言語の一つとして、エジプト料理・アラビア語クラスはすぐに満員になるほどの人気でした。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：ブログ</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>沖縄で開催された【料理×語学】世界の料理教室に、グローバル公民館を代表して参加。アラビア語とエジプト料理を教える担当を務めました。この教室では中国語・韓国語・スペイン語・アラビア語の4言語について、現地出身または在住の講師が料理を作りながら言語を教えるという企画で、各言語定員はわずか5名。限られた時間で料理と語学の両方を教えるのはあっという間でしたが、エジプト料理とアラビア語のクラスは人気ですぐに満員になったといいます。</p>
-<p>紹介したのは、エジプトのパン「アエーシバラディ」とハイビスカスジュース「カルカデジュース」。他のクラスでは韓国のキンパ、アルゼンチンのエンパナーダとマテ茶、中国の胡麻団子なども作られ、料理を通じて多言語・多文化に触れる交流会となりました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="tokkatsu">
-          <div class="thumb"><img src="images/tokkatsu.jpg" alt="アインシャムス大学での特活講座の様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">大学連携 ／ 2019年2月</span>
-            <h3>アインシャムス大学教育学部で、エジプトの大学として初めての特活講座を実施</h3>
-            <p>体育や美術など、日本の「特別活動」を取り入れた講座をエジプトの大学で初めて開催。保護者が学んでいる間、子どもたちは日本語のお勉強にも挑戦しました。</p>
-            <div class="meta">カテゴリー：ブログ</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>アインシャムス大学教育学部で、エジプトの大学として初めての「特活（日本の特別活動）」講座を実施。エジプトに派遣された7名のJICAボランティアの協力のもと、2019年2月から4月の週末を利用して全14回、教育学部の学生や新人教師、保護者など70人以上が参加しました。体育・美術・音楽・平和教育など、実際に子どもたちに教えながら学ぶ内容で、休日には親子連れも多く参加。美術の授業では利き手でない手で似顔絵を描いたり目を閉じて絵を描いたりする体験を通じ、視点の違いを考える時間になりました。</p>
-<p>子どもたちが親の受講中に日本語を学ぶ時間では、JICAボランティアの先生と覚えたての日本語で会話する場面も。「講座を通じて参加者に一番影響を与えたのはJICAボランティアの態度や行動そのものだった」といい、教室のゴミを進んで拾う姿などから、参加者は言葉より行動で多くを学んだといいます。最終日には参加者自ら片付けを行うようになったそうです。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="report-8">
-          <div class="thumb"><img src="images/report-8.jpg" alt="第8回講座の様子"><span class="num">08</span></div>
-          <div>
-            <span class="tag">講座報告書</span>
-            <h3>第8回「エジプトと日本の歴史を比べてみよう」</h3>
-            <p>エジプト側・繁多川公民館側それぞれから歴史の紹介があり、時代も文化も異なる二つの国がどのように現在の社会をかたちづくってきたのかを比較しました。</p>
-            <div class="meta">カテゴリー：講座報告書</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>2019年度の繁多川公民館とのオンライン講座がスタート。初回のテーマは「エジプトと日本の歴史を比べてみよう」で、5000年前にピラミッドが築かれていた頃の沖縄、あるいは沖縄で玉陵（タマウドゥン）が造られていた頃のエジプトなど、双方の歴史を比較しながら理解を深めました。エジプト側はサマースクールで英語を学ぶ小中学生が参加し、クフ王やスフィンクス、ナポレオンについて英語で堂々と発表。沖縄側は繁多川公民館で公募した中高生や県立看護大学・国際大学の学生が、世界遺産の識名園や玉陵について紹介しました。</p>
-<p>本事業は2019年度文部科学省「日本型教育の海外展開推進事業（EDU-Portニッポン）」公認プロジェクトの一環。回を重ねるごとに、違いよりも共通点を探すようになっていく参加者たちの姿から、沖縄とエジプトの距離が着実に縮まっていることが感じられる講座になりました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="report-9">
-          <div class="thumb"><img src="images/report-9.jpg" alt="第9回講座「グローバルニュースでディスカッション」の様子"><span class="num">09</span></div>
-          <div>
-            <span class="tag">講座報告書 ／ 2019年9月</span>
-            <h3>第9回「グローバルニュースでディスカッション」</h3>
-            <p>2019年度繁多川公民館とのオンライン講座、第2回目のテーマは「グローバルニュースでディスカッション」。エジプト側はスカッシュとハンドボールでの世界的活躍を、沖縄側は東京五輪に向けた空手や在宅医療のニュースを紹介し合い、互いの関心事から両国の今を語り合いました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：講座報告書</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>2019年度繁多川公民館とのオンライン講座、第2回目のテーマは「グローバルニュースでディスカッション」。互いの国の最近のニュースから、スポーツや参加者の関心のある話題を取り上げて話し合いました。エジプト側はスカッシュの世界大会や、ハンドボール男子ユース世界選手権での優勝を紹介。エジプトはスカッシュが非常に強く、世界ランキング上位を男女ともに独占しているそうで、女子世界ランク1位の選手とスポーツクラブですれ違ったことがあるという余談も飛び出しました。</p>
-<p>沖縄側は、東京オリンピックに向けた沖縄発祥の空手や、看護大学生の発表者による在宅医療についてのニュースを紹介。エジプト側はサマースクールで英語を学ぶ小中学生が事前に調べたニュースを英語で発表し、沖縄側は繁多川公民館で公募した中高生や大学生が質問・返答を担当しました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="report-10">
-          <div class="thumb"><img src="images/report-10.jpg" alt="第10回講座「エジプトと沖縄の食文化」の様子"><span class="num">10</span></div>
-          <div>
-            <span class="tag">講座報告書 ／ 2019年9月</span>
-            <h3>第10回「エジプトと沖縄の食文化」</h3>
-            <p>2019年度繁多川公民館とのオンライン講座、全3回シリーズの最終回。エジプト側はエジプトの家庭料理「マハシ」を、沖縄側は「ゴーヤーチャンプルー」を紹介しあい、エジプトで作ったサーターアンダギーと沖縄で作ったエジプトのお米プリン「ロズビラバン」を互いに試食。箸使いを披露する中学生や、順番を守って質問する小学生の姿にエジプト側が感心する場面もありました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：講座報告書</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>2019年度繁多川公民館とのオンライン講座、全3回シリーズの最終回。テーマは「エジプトと沖縄の食文化」で、沖縄側はエジプトのスイーツを実際に調理して試食し、エジプト側は沖縄の名物サーターアンダギーを味わいました。エジプト側からはドルマの一種である家庭料理「マハシ」（キャベツやぶどうの葉、くり抜いた野菜に米や挽肉を詰めた料理）が紹介され、沖縄側からはゴーヤーチャンプルーが紹介されました。</p>
-<p>質問タイムでは、大人の指示なしに順番を守って質問する日本の小学生の姿にエジプト側が感心する場面も。中学生が箸で豆を一粒も落とさずつかむ様子には歓声が上がりました。エジプトで作ったサーターアンダギーと、沖縄で作ったエジプトのお米プリン「ロズビラバン」（お米と牛乳の意）を互いに試食し、「自分に自信がついた」「日本のことを知ることができた」といった感想が寄せられ、全3回の講座は無事終了しました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="entrepreneurship-workshop">
-          <div class="thumb"><img src="images/entrepreneurship-workshop.jpg" alt="アインシャムス大学でのアントレプレナーシップ・ワークショップの様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">EDU-Portニッポン ／ 2020年1月</span>
-            <h3>国立アインシャムス大学で公民館とアントレプレナーシップのワークショップを行いました</h3>
-            <p>クラス人数の多さや教員研修、評価システムなどエジプトの教育課題7つを解決するビジネスアイディアをグループで話し合うワークショップを開催。モハメッド氏、繁多川公民館・南館長、アドバイザーの西山氏がそれぞれの視点からアドバイスを行いました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：認定プロジェクト</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>首都カイロの国立アインシャムス大学で、公民館とアントレプレナーシップ（起業家精神）のワークショップを実施。エジプトの教育が抱える課題——認知能力偏重の教育、1クラスの人数の多さ、教員不足や研修・待遇の問題、教育の質、学習環境、短い学期、評価システムという7つのテーマ——について、公民館での活動を通じて解決するビジネスアイディアをグループごとに話し合いました。</p>
-<p>1年中世界を旅しながら株式会社タウンキッチンの取締役なども務める西山佳孝氏がアントレプレナーについて発表。グループ発表のあとには、モハメッド氏、南館長、西山氏がそれぞれの視点からアドバイスを行い、教育課題への実践的なアプローチが議論されました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="aswan-university">
-          <div class="thumb"><img src="images/aswan-university.jpg" alt="国立アスワン大学での説明会の様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">EDU-Portニッポン ／ 2020年1月</span>
-            <h3>エジプト南部にある国立アスワン大学で公民館とEDU-Port公認プロジェクトの紹介を行いました</h3>
-            <p>カイロを離れ、エジプト南部アスワンの国立大学でプロジェクトを紹介。南館長が繁多川公民館の取り組みとEDU-Port認定プロジェクトについて発表し、モハメッド氏がグローバル公民館のこれまでの活動を紹介しました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：認定プロジェクト</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>首都カイロを離れ、エジプト南部アスワンの国立アスワン大学教育学部で、公民館とEDU-Port公認プロジェクトを紹介。アスワンには有名なアスワン・ハイ・ダムがあり、市内にはアガサ・クリスティが「ナイルに死す」を執筆した名門ホテル「オールド・カタラクト」でも知られています。アスワンのチームメンバーはエジプト国旗の色（赤・黒・白）を身にまとい、一致団結してイベントを成功に導きました。</p>
-<p>南館長が繁多川公民館の取り組みとEDU-Port公認プロジェクトについて発表し、モハメッド氏がグローバル公民館のこれまでの講座や活動を紹介。カイロ以外の地域にも活動の輪が広がっていることを実感させるイベントとなりました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="kickoff-briefing">
-          <div class="thumb"><img src="images/kickoff-briefing.jpg" alt="キックオフ説明会の様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">EDU-Portニッポン ／ 2020年1月</span>
-            <h3>2019年度EDU-Port公認プロジェクト「エジプトに公民館を作ろう！キックオフ説明会」を開催しました</h3>
-            <p>在エジプト日本大使館と那覇市繁多川公民館の両会場をオンラインで繋いだキックオフ説明会。事前申し込みは120名にのぼり、南館長・西山氏をエジプトに迎え、公民館運営や社会教育を学び実践したいメンバー・アドバイザーが顔合わせしました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：認定プロジェクト</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>繁多川公民館との共同プロジェクト「エジプトにおける教育イノベーション創出事業」が2019年度EDU-Port公認プロジェクトに選ばれたことを受け、南館長とアドバイザーの西山氏をエジプトに迎えてキックオフ説明会を開催。在エジプト日本大使館（エジプト側）と那覇市繁多川公民館2階実習室（日本側）をオンラインで繋ぎ、公民館運営や社会教育を学び実践したい人を対象に実施しました。事前申し込みは120名にのぼり、エジプト人の関心の高さがうかがえました。</p>
-<p>大使館を代表して田中氏が、EDU-Portニッポンが文部科学省・経済産業省・外務省・JICAなどが連携する官民協働の「日本型教育の海外展開事業」であり、エジプトだけでなくベトナム・タイ・ブラジル・ペルーなど各国でも展開されていることを説明。数回にわたる事前のオンラインミーティングを経て、それぞれの担当が協力し合い、説明会は大盛況のうちに終わりました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="edu-port-meeting">
-          <div class="thumb"><img src="images/edu-port-meeting.jpg" alt="横浜での2019年度報告ミーティングの様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">EDU-Portニッポン ／ 2020年2月</span>
-            <h3>エジプトに公民館を作ろう　2019年度報告ミーティングが開催されました</h3>
-            <p>横浜市の BUKATSUDO にて、モハメッド・アブデルミギード氏（エジプトチームコーディネーター）、南信乃介氏、西山佳孝氏らが登壇し、カイロでの拠点づくりの進捗と今後の展開を報告。イスラームの教えにある「死後も世に役立つものを残す」という考え方から公民館づくりを志した背景や、プロジェクトメンバー一人ひとりが活動を通じて自分の得意・不得意を発見していった様子が語られました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：認定プロジェクト</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>横浜市のBUKATSUDOで開催された2019年度報告ミーティング。モハメッド氏（エジプトチームコーディネーター）、南信乃介氏、西山佳孝氏らが登壇し、カイロでの拠点づくりの進捗と今後の展開を報告しました。モハメッド氏は「日本人にエジプトと聞くとピラミッドや歴史を思い浮かべるが、エジプト人に日本と聞くとシステムやテクノロジー、真面目さを思い浮かべる」という興味深い対比を紹介。イスラームの教えにある「自分が死んだ後も世に役立つものを残す」という考え方から公民館づくりを志したと語りました。</p>
-<p>プロジェクトメンバーからは、司会に初挑戦して苦手意識を克服した話や、看板デザインでのトラブルをきっかけにデザインを学び始めた話など、活動を通じて自分自身を発見していく様子が共有されました。南氏は「エジプトに日本の公民館の機能『つどう・まなぶ・つなぐ』にエジプトに求められる『協力』『実現』を加え、カイロでのオープンに向けて準備している」とコメント。誰かの人生を変える出会いを生むのが公民館だと、今後への期待を語りました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="edu-port-followup">
-          <div class="thumb"><img src="images/edu-port-followup.jpg" alt="振り返りミーティングの様子"><span class="num">特別</span></div>
-          <div>
-            <span class="tag">EDU-Portニッポン ／ 2020年2月</span>
-            <h3>EDU-Portキックオフ説明会の振り返り・研修について話し合いました</h3>
-            <p>プロジェクトメンバーが集まり、キックオフ説明会の良かった点・改善点を振り返る会を実施。あわせて、アインシャムス大学地域づくりセンターで始まる社会教育のプログラムコーディネーター育成研修の準備について話し合いました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：認定プロジェクト</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>EDU-Portプロジェクトメンバーが集まり、キックオフ説明会について気づきや良かった点、改善が必要な点を振り返る会を実施。あわせて、これから始まるアインシャムス大学地域づくりセンターでの、社会教育のプログラムコーディネーターを育成する研修についても話し合いました。準備段階からメンバー同士で率直に意見を出し合う、プロジェクトの土台を固める大切な機会となりました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="training-1">
-          <div class="thumb"><img src="images/training-1.jpg" alt="アインシャムス大学地域づくりセンターでの研修の様子"><span class="num">研修①</span></div>
-          <div>
-            <span class="tag">EDU-Portニッポン ／ 2020年2月</span>
-            <h3>国立アインシャムス大学 地域づくりセンターで社会教育のプログラムコーディネーターを育成する研修が始まりました</h3>
-            <p>繁多川公民館との共同プロジェクトの一環として、全5回を予定する研修がスタート。プログラムコーディネーターを目指す大人・日本式特別活動を学ぶ先生・そして子どもという3つの立場が同時に学べる構成で、初回のテーマは「日直の役割」。子どもたちが1週間後、自ら実践結果を記録したプリントを笑顔で提出してくれたエピソードが紹介されています。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：認定プロジェクト ／ 講座報告書</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>アインシャムス大学地域づくりセンターで、社会教育のプログラムコーディネーターを育成する全5回の研修がスタート。繁多川公民館との共同プロジェクトの一環で、①プログラムコーディネーターを目指す大人、②日本式特別活動を学ぶ先生、③子どもという3つの立場が同時に学べる構成になっています。初回のテーマは「日直の役割」。演技力豊かに掃除・電気・協力という3つのエピソードを紹介したのち、子どもたちに問いかけながら「つかむ→さぐる→見付ける→決める」という4段階で授業が展開されました。</p>
-<p>子どもたちには1週間、決めたことを実践する記録シートが配布され、指示していないにもかかわらず自ら笑顔で提出してくれたそうです。保護者からも「誰もいないので電気を消そう」「一緒に掃除をしよう」と子どもが自発的に声をかけ合うようになったとの報告があり、講座の効果を実感するエピソードとなりました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="training-2">
-          <div class="thumb"><img src="images/training-2.jpg" alt="第2回研修の様子"><span class="num">研修②</span></div>
-          <div>
-            <span class="tag">EDU-Portニッポン ／ 2020年3月</span>
-            <h3>第2回「社会教育のプログラムコーディネーターを育成する研修」</h3>
-            <p>研修シリーズの2回目のテーマは「言葉づかい」。言われて嫌な言葉とその理由を話し合い、代わりにどんな言葉を使うべきかを考えました。参加していた保護者からは、我が子と先生とのやりとりを客観的に見ることで新しい気づきがあったとの声も。この後、新型コロナウイルスの影響で研修はしばらく休止となりました。</p>
-            <div class="meta">著者：りむ ／ カテゴリー：認定プロジェクト ／ 講座報告書</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>研修シリーズ第2回のテーマは「言葉づかい」。言われて嫌な言葉とその理由を事前にアンケートし、どんな言葉を使うべきかをみんなで話し合いました。参加者からは、自分の子どもとのやりとりを客観的に見ることで新しい気づきがあったとの声も。積極的に手を挙げて発表する姿が見られ、授業の振り返りでは良かった点・改善点を話し合いました。</p>
-<p>大学での研修はこの後、新型コロナウイルスの影響を受けてしばらく休止に。「いつ再開できるかわかりませんが、みんながまた集まって一緒に学べる日を楽しみにしています」という言葉で回は締めくくられました。</p></div></details>
-          </div>
-        </article>
-
-        <article class="blog-row" id="edu-port">
-          <div class="thumb badge"><img src="images/edu-port-badge.png" alt="EDU-Portニッポン 認定バッジ"><span class="num">認定</span></div>
-          <div>
-            <span class="tag">令和元年度</span>
-            <h3>「日本型教育の海外展開推進事業（EDU-Portニッポン）」パイロット事業 公認プロジェクトに選定</h3>
-            <p>代表機関：特定非営利活動法人 1万人井戸端会議。事業名は「エジプトにおける教育イノベーション創出事業〜日本式公民館の運営および社会教育の学びを通じて〜」。那覇市 繁多川公民館の社会教育ノウハウを活かし、学校教育と社会教育をつなぐ教育イノベーションの創出、指導者育成システムの構築、公民館運営の実践を通じた課題解決を目指しています。</p>
-            <div class="meta">カテゴリー：認定プロジェクト</div>
-            <details><summary>続きを読む</summary><div class="full-text"><p>地道にオンライン交流を重ねてきたグローバル公民館の取り組みが実を結び、文部科学省「日本型教育の海外展開推進事業（EDU-Portニッポン）」の令和元年度公認プロジェクトに選定されました。代表機関は特定非営利活動法人1万人井戸端会議、事業名は「エジプトにおける教育イノベーション創出事業〜日本式公民館の運営および社会教育の学びを通じて〜」。アフリカ地域（ウガンダ・エジプト）を対象とした2件の公認プロジェクトの一つとして、文部科学省のホームページでも発表されました。</p>
-<p>繁多川公民館が積み重ねてきた社会教育のノウハウを活かし、エジプトで「地域社会との連携」や「コミュニティラーニングの促進」をテーマに、学校教育と社会教育をつなぐ教育イノベーションの創出を目指すとしています。あわせて、学びを支える指導者育成システムの構築と、公民館運営の実践を通じた課題解決にも取り組むとされ、近い将来カイロに公民館をオープンする計画へとつながっていきます。</p></div></details>
-          </div>
-        </article>
-
-      </div>
-
-      <h3 class="sub-head" style="margin-top:2.6em;">草の根の講座から、国が認めるプロジェクトへ</h3>
-      <p class="toha-lead">2018年、インターネット越しの小さな講座から始まった取り組みは、沖縄・那覇市 繁多川公民館との協働を経て、日本の国家プロジェクトの認定へとつながりました。</p>
-      <div class="timeline">
-        <div class="t-item">
-          <div class="t-year">2018年2月</div>
-          <h3>エジプト初のグローバル公民館講座、開催</h3>
-          <p>「エジプトと日本の幼稚園の違いについて」をテーマに、インターネットを通じて日本の幼稚園教諭とエジプトの参加者をつないだ第1回講座を開催。熱心にメモを取る参加者の姿から、エジプトをより良い国にしたいという熱意が伝わってきました。</p>
-        </div>
-        <div class="t-item">
-          <div class="t-year">2018–2019年</div>
-          <h3>テーマを広げながら講座を継続</h3>
-          <p>「学校での経験」「お母さんのあり方」「空手と教育」「おもてなし」など、教育に限らず文化・価値観をテーマにした講座を重ね、日本とエジプトの参加者同士の相互理解を深めていきました。</p>
-        </div>
-        <div class="t-item">
-          <div class="t-year">2019年</div>
-          <h3>「公民館の機能」そのものを学ぶ段階へ</h3>
-          <p>「つどう・まなぶ・つなぐ」という日本式公民館の三つの機能を紹介し、エジプトに必要な要素として「協力」「実現」を加えた独自の5機能モデルを提案。アインシャムス大学教育学部では、エジプトの大学として初めての特別活動講座も実施しました。</p>
-        </div>
-        <div class="t-item">
-          <div class="t-year">令和元年度</div>
-          <h3>「日本型教育の海外展開推進事業（EDU-Portニッポン）」パイロット事業に認定</h3>
-          <p>代表機関・特定非営利活動法人「1万人井戸端会議」のもと、「エジプトにおける教育イノベーション創出事業〜日本式公民館の運営および社会教育の学びを通じて〜」が公認プロジェクトに選ばれました。繁多川公民館の社会教育ノウハウを軸に、学校教育と社会教育をつなぐ指導者育成システムの構築を進めています。</p>
-        </div>
-        <div class="t-item">
-          <div class="t-year">2019–2020年</div>
-          <h3>認定プロジェクトを、実際の講座・研修へ</h3>
-          <p>「エジプトと沖縄の食文化」をテーマにした講座や、横浜での2019年度報告ミーティングを経て、アインシャムス大学地域づくりセンターでは全5回を予定する「社会教育のプログラムコーディネーター育成研修」がスタート。大人・先生・子どもという3つの立場が同時に学べる場として実践を重ねましたが、新型コロナウイルスの影響で研修はしばらく休止となりました。</p>
-        </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(30,30,28,.1);border:1px solid rgba(30,30,28,.1);margin-top:14px;">
+        <div style="background:#fff;padding:32px 20px;"><span style="font-family: 'Shippori Mincho',serif; font-size: 2rem; color: #3E6E8E; display: block; margin-bottom: .5em; text-align: center">学</span><h3 style="font-size:.98rem;margin:0 0 .5em;color:#222220;">まなぶ｜Learn</h3><p style="font-size:.85rem;color:#5B584F;margin:0;">子育て、教育、文化をテーマにした講座やワークショップで、知恵を学び合う。</p></div>
+        <div style="background:#fff;padding:32px 20px;"><span style="font-family: 'Shippori Mincho',serif; font-size: 2rem; color: #3E6E8E; display: block; margin-bottom: .5em; text-align: center">集</span><h3 style="font-size:.98rem;margin:0 0 .5em;color:#222220;">つどう｜Gather</h3><p style="font-size:.85rem;color:#5B584F;margin:0;">世代や立場を超えた人びとが集い、対話する場をつくる。</p></div>
+        <div style="background:#fff;padding:32px 20px;"><span style="font-family: 'Shippori Mincho',serif; font-size: 2rem; color: #3E6E8E; display: block; margin-bottom: .5em; text-align: center">繋</span><h3 style="font-size: .98rem; margin: 0 0 .5em; color: #222220; text-align: center">つなぐ｜Connect</h3><p style="font-size:.85rem;color:#5B584F;margin:0;">学校教育と社会教育、日本とエジプト、分断されがちな関係を橋渡しする。</p></div>
+        <div style="background:#fff;padding:32px 20px;"><span style="font-family: 'Shippori Mincho',serif; font-size: 2rem; color: #3E6E8E; display: block; margin-bottom: .5em; text-align: center">協</span><h3 style="font-size: .98rem; margin: 0 0 .5em; color: #222220; text-align: center">協力｜Cooperate</h3><p style="font-size:.85rem;color:#5B584F;margin:0;">行政・大学・企業・地域リーダーと連携し、共につくる。</p></div>
+        <div style="background:#fff;padding:32px 20px;"><span style="font-family: 'Shippori Mincho',serif; font-size: 2rem; color: #3E6E8E; display: block; margin-bottom: .5em; text-align: center">実</span><h3 style="font-size: .98rem; margin: 0 0 .5em; color: #222220; text-align: center">実現｜Implement</h3><p style="font-size:.85rem;color:#5B584F;margin:0;">実際の教育イノベーションとして地域に落とし込み、根づかせる。</p></div>
       </div>
     </div>
   </section>
 
-  <section id="voices">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Voices</span>
-        <h2>参加者の声</h2>
-        <p>グローバル公民館講座に参加された、日本とエジプトの方々の感想の一部をご紹介します。</p>
+  <section id="partners" style="padding:88px 0;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 28px;">
+      <div style="display:inline-flex;align-items:center;gap:.6em;border:1px solid #222220;border-radius:999px;padding:.3em .9em .3em .5em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;font-weight:700;color:#222220;margin-bottom:.9em;">
+        <span style="width:20px;height:20px;border-radius:50%;background:#3E6E8E;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-family:'Shippori Mincho',serif;">四</span>Chapter 4
       </div>
-      <div class="voice-grid">
-        <div class="voice-card"><p>日本の公民館活動に劣らないくらい、参加者の多くが前のめりになって参加されていたことが印象的でした。</p><span class="who">日本人参加者</span></div>
-        <div class="voice-card"><p>文化交流の場としてとてもよかった。講師、通訳、会場などすべてボランティアが集って、全員で取り組んだということが良かったです。</p><span class="who">エジプト人参加者</span></div>
-        <div class="voice-card"><p>日本だと発言してくださいと言うとシーンとしてしまうのを想像しますが、真剣に取り組んで楽しそうに参加しているのが伝わってきていいなあと思いました。</p><span class="who">日本人参加者</span></div>
-        <div class="voice-card"><p>コーランの教えには、お互いの違いから学ぶために国籍や顔つきの違いをつくった、という考え方があります。それが一期一会を大切にする心につながっていると思いました。</p><span class="who">エジプト人参加者</span></div>
-        <div class="voice-card"><p>「エジプトに生まれてきてよかったか？」という問いに、次々と自分の国の良さを楽しそうに話している姿が印象的でした。</p><span class="who">日本人参加者</span></div>
-        <div class="voice-card"><p>みんなで集まると新しいアイデアが生まれることを実感しました。学ぶことに年齢は関係ありません。</p><span class="who">エジプト人参加者</span></div>
-        <div class="voice-card"><p>教育省の研修で日本に行ってきました。今日のグローバル公民館講座に参加して、まだ日本にいる気がしました。</p><span class="who">エジプト人参加者</span></div>
-        <div class="voice-card"><p>日本は時間を大事にする文化があります。エジプトにもその習慣を取り入れたいです。</p><span class="who">エジプト人参加者</span></div>
-        <div class="voice-card"><p>何かの講義を聞いて終わると思っていましたが、ディスカッションにつながってとても良い学びになりました。</p><span class="who">エジプト人の学生</span></div>
-        <div class="voice-card"><p>見学のつもりで来たのですが、気づけばみんなと一緒に講座に参加している自分がいて、とても楽しかったです。</p><span class="who">日本人参加者</span></div>
-        <div class="voice-card"><p>公民館という考え方が素晴らしいと思いました。子どもへの道徳の教え方が分かりました。</p><span class="who">エジプト人参加者</span></div>
-        <div class="voice-card"><p>あなたたちのような人が私たちの周りにいることを知れて嬉しかったです。ありがとうございます。</p><span class="who">エジプト人参加者</span></div>
-        <div class="voice-card"><p>時間通りに進めていたことが素晴らしかったですし、関係者どうしの協力関係も見事だと思いました。</p><span class="who">エジプト人参加者</span></div>
-        <div class="voice-card"><p>エジプトの知恵やことわざを知ることができました。</p><span class="who">日本人参加者</span></div>
-        <div class="voice-card"><p>運営者の情熱に感動しました。アブデルミギードさんの熱意が伝わってきました。</p><span class="who">エジプト人参加者</span></div>
-        <div class="voice-card"><p>エジプト人のお母さんの経験を知ることができて良かったです。ディスカッションが面白く、このプロジェクトが成功することを願っています。</p><span class="who">日本人参加者</span></div>
+      <div style="max-width:660px;margin-bottom:52px;">
+        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:#B5734A;font-weight:700;">Partners</span>
+        <h2 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:clamp(1.6rem,3vw,2.2rem);margin:.4em 0 0;">共に歩む連携団体</h2>
+        <p style="color:#5B584F;font-size:1rem;">行政・大学・国際協力機関との連携のもと、エジプトと日本を結ぶ学びの場を築いています。</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(30,30,28,.12);border:1px solid rgba(30,30,28,.12);">
+        <div style="background:#FAFAF7;padding:28px 16px;text-align:center;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.84rem;color:#222220;display:flex;align-items:center;justify-content:center;min-height:92px;">JICA</div>
+        <div style="background:#FAFAF7;padding:28px 16px;text-align:center;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.84rem;color:#222220;display:flex;align-items:center;justify-content:center;min-height:92px;">アインシャムス大学 教育学部</div>
+        <div style="background:#FAFAF7;padding:28px 16px;text-align:center;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.84rem;color:#222220;display:flex;align-items:center;justify-content:center;min-height:92px;">那覇市繁多川公民館</div>
+        <div style="background:#FAFAF7;padding:28px 16px;text-align:center;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.84rem;color:#222220;display:flex;align-items:center;justify-content:center;min-height:92px;">那覇市教育委員会</div>
+        <div style="background:#FAFAF7;padding:28px 16px;text-align:center;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.84rem;color:#222220;display:flex;align-items:center;justify-content:center;min-height:92px;">日本公民館学会</div>
+        <div style="background:#FAFAF7;padding:28px 16px;text-align:center;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.84rem;color:#222220;display:flex;align-items:center;justify-content:center;min-height:92px;">1万人井戸端会議</div>
+        <div style="background:#FAFAF7;padding:28px 16px;text-align:center;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.84rem;color:#222220;display:flex;align-items:center;justify-content:center;min-height:92px;">EDU-Portニッポン</div>
+        <div style="background:#FAFAF7;padding:28px 16px;text-align:center;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.84rem;color:#222220;display:flex;align-items:center;justify-content:center;min-height:92px;">エジプト地域コミュニティ団体</div>
       </div>
     </div>
   </section>
 
-  <section class="alt" id="taa-kominkan">
-    <div class="wrap">
-      <div class="chapter-badge"><span class="dot">三</span>Chapter 3</div>
-      <div class="taa-grid">
-        <div class="taa-text">
-          <span class="eyebrow">Our Home Base in Egypt</span>
-          <h2>Egyptian Kominkan（Taa Kominkan）</h2>
-          <span class="jp-alt">エジプトの公民館（ター公民館）</span>
-          <p>
-            Global Kominkan（グローバル公民館）がオンライン講座を通じて育んできた学びのネットワークを、
-            エジプトの地域に実際に根づかせる拠点——それが Egyptian Kominkan、通称「ター公民館」です。
-            日本の公民館が地域の茶の間であるように、ここもまた、世代や立場を越えた人びとが日常的に
-            立ち寄り、学び、つながる「もう一つの茶の間」を目指しています。
-          </p>
-          <p>
-            エジプトで初めてグローバル公民館講座を立ち上げたモハメッド・アブデルミギード氏を中心に、
-            那覇市 繁多川公民館の知見を取り入れながら、講座の開催だけでなく、日常的に人が集える
-            物理的な場づくりを進めています。
-          </p>
-          <div class="taa-note">
-            ※このセクションはター公民館の紹介のためのプレースホルダーです。住所・開館時間・活動の詳細など、
-            正式な情報をいただければ随時更新いたします。
-          </div>
-        </div>
-        <div class="taa-photos">
-          <img class="tall" src="images/taa-kominkan-1.jpg" alt="ター公民館の設立に携わったモハメッド・アブデルミギード氏">
-          <img class="short" src="images/taa-kominkan-2.jpg" alt="ター公民館 設立の歩みに関する資料写真">
-          <img class="short" src="images/report-3.jpg" alt="地域の人びとが集う様子">
-        </div>
+  <section id="support" style="padding:88px 0;background:#F7F6F2;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 28px;">
+      <div style="display:inline-flex;align-items:center;gap:.6em;border:1px solid #222220;border-radius:999px;padding:.3em .9em .3em .5em;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;font-weight:700;color:#222220;margin-bottom:.9em;background:#F7F6F2;">
+        <span style="width:20px;height:20px;border-radius:50%;background:#B5502F;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-family:'Shippori Mincho',serif;">五</span>Chapter 5
       </div>
-    </div>
-  </section>
-
-  <section id="partners">
-    <div class="wrap">
-      <div class="chapter-badge"><span class="dot">四</span>Chapter 4</div>
-      <div class="section-head">
-        <span class="eyebrow">Partners</span>
-        <h2>共に歩む連携団体</h2>
-        <p>行政・大学・国際協力機関との連携のもと、エジプトと日本を結ぶ学びの場を築いています。</p>
+      <div style="max-width:660px;margin-bottom:52px;">
+        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:#B5734A;font-weight:700;">ご支援のお願い</span>
+        <h2 style="font-family:'Shippori Mincho',serif;color:#222220;font-size:clamp(1.6rem,3vw,2.2rem);margin:.4em 0 0;">新しい活動拠点づくりに、力を貸してください</h2>
+        <p style="color:#5B584F;font-size:1rem;">活動の拡大にともない、エジプトに新しい事務所・学びの場を整備しています。日本のみなさまからのご支援を、電気・内装・什器などの整備費用にあてさせていただきます。</p>
       </div>
-      <div class="partner-list">
-        <div>JICA</div>
-        <div>アインシャムス大学 教育学部</div>
-        <div>那覇市繁多川公民館</div>
-        <div>沖縄県 那覇市教育委員会</div>
-        <div>日本公民館学会</div>
-        <div>1万人井戸端会議</div>
-        <div>EDU-Portニッポン</div>
-        <div>エジプト地域コミュニティ団体</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="alt" id="support">
-    <div class="wrap">
-      <div class="chapter-badge"><span class="dot">五</span>Chapter 5</div>
-      <div class="section-head">
-        <span class="eyebrow">ご支援のお願い</span>
-        <h2>新しい活動拠点づくりに、力を貸してください</h2>
-        <p>活動の拡大にともない、エジプトに新しい事務所・学びの場を整備しています。日本のみなさまからのご支援を、電気・内装・什器などの整備費用にあてさせていただきます。</p>
-      </div>
-      <div class="support-box">
-        <p>ご支援・お問い合わせは、Global Kominkan の Facebook ページよりお気軽にご連絡ください。</p>
-        <a class="btn btn-primary" href="https://web.facebook.com/g.kominkan/" target="_blank" rel="noopener">Facebookで詳細を見る</a>
+      <div style="background:#fff;border:1px solid rgba(30,30,28,.12);padding:44px;display:flex;flex-direction:column;gap:20px;align-items:flex-start;">
+        <p style="color:#5B584F;margin:0;max-width:60ch;">ご支援・お問い合わせは、Global Kominkan の Facebook ページよりお気軽にご連絡ください。</p>
+        <a href="https://web.facebook.com/g.kominkan/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.5em;padding:.9em 1.6em;border-radius:3px;font-family:'Zen Kaku Gothic New',sans-serif;font-size:.88rem;font-weight:700;background:#222220;color:#fff;">Facebookで詳細を見る</a>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer>
-  <div class="wrap">
+<footer style="background:#222220;color:#C9C6BC;padding:60px 0 30px;font-size:.86rem;">
+  <div style="max-width:1120px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;">
     <div>
-      <h4>Global Kominkan</h4>
-      <p style="max-width:38ch;color:#93A0B8;">グローバル公民館（Global Kominkan）は、日本の公民館・地域コミュニティ施設および生涯学習・社会教育に携わる人材と、エジプト・アラブ諸国・アフリカ諸国、そして世界各地の同様の施設や人材とをつなぐ、バーチャルなネットワークです。</p>
+      <h4 style="color:#fff;font-size:1rem;margin:0 0 1em;">Global Kominkan</h4>
+      <p style="max-width:38ch;color:#9B9890;">グローバル公民館（Global Kominkan）は、日本の公民館・地域コミュニティ施設および生涯学習・社会教育に携わる人材と、エジプト・アラブ諸国・アフリカ諸国、そして世界各地の同様の施設や人材とをつなぐ、バーチャルなネットワークです。</p>
     </div>
     <div>
-      <h4>サイトマップ</h4>
-      <ul>
-        <li><a href="#global-kominkan-toha">グローバル公民館とは</a></li>
-        <li><a href="#reports">講座レポート</a></li>
-        <li><a href="#voices">参加者の声</a></li>
-        <li><a href="#taa-kominkan">エジプトの公民館（ター公民館）</a></li>
-        <li><a href="#partners">連携団体</a></li>
-        <li><a href="#support">ご支援</a></li>
+      <h4 style="color:#fff;font-size:1rem;margin:0 0 1em;">サイトマップ</h4>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6em;">
+        <li><a href="#about" style="color:#C9C6BC;">グローバル公民館とは</a></li>
+        <li><a href="#reports" style="color:#C9C6BC;">講座レポート</a></li>
+        <li><a href="#voices" style="color:#C9C6BC;">参加者の声</a></li>
+        <li><a href="#taa-kominkan" style="color:#C9C6BC;">エジプトの公民館（ター公民館）</a></li>
+        <li><a href="#partners" style="color:#C9C6BC;">連携団体</a></li>
+        <li><a href="#support" style="color:#C9C6BC;">ご支援</a></li>
       </ul>
     </div>
     <div>
-      <h4>つながる</h4>
-      <ul>
-        <li><a href="https://web.facebook.com/g.kominkan/" target="_blank" rel="noopener">Global Kominkan</a></li>
-        <li><a href="https://web.facebook.com/eg.kominkan/" target="_blank" rel="noopener">Egyptian Kominkan</a></li>
+      <h4 style="color:#fff;font-size:1rem;margin:0 0 1em;">つながる</h4>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6em;">
+        <li><a href="https://web.facebook.com/g.kominkan/" target="_blank" rel="noopener" style="color:#C9C6BC;">Global Kominkan</a></li>
+        <li><a href="https://web.facebook.com/eg.kominkan/" target="_blank" rel="noopener" style="color:#C9C6BC;">Egyptian Kominkan</a></li>
       </ul>
     </div>
   </div>
-  <div class="wrap footer-bottom">
+  <div style="max-width:1120px;margin:44px auto 0;padding:22px 28px 0;border-top:1px solid rgba(255,255,255,.12);font-size:.76rem;color:#8A8880;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
     <span>© 2018–2026 Global Kominkan / グローバル公民館</span>
   </div>
 </footer>
 
-<script>
-  const toggle = document.getElementById('navToggle');
-  const navList = document.getElementById('navList');
-  toggle.addEventListener('click', () => navList.classList.toggle('open'));
-  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navList.classList.remove('open')));
-</script>
+</x-dc>
 </body>
 </html>
